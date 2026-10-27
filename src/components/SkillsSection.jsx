@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Code2, Server, Database, Wrench, Layers, Compass, 
-  CheckCircle2, Sparkles, ArrowUpRight 
+  Code2, Server, Database, Wrench, Layers, Compass
 } from 'lucide-react';
 import { skillsData } from '../data/skillsData';
 

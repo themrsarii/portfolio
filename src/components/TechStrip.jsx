@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Database, Server, Globe, Code2, Cpu, FileCode2, Layers, GitBranch } from 'lucide-react';
 import { GithubIcon } from './Icons';
 

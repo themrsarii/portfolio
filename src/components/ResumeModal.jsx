@@ -1,24 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, Download, ExternalLink, FileText, Check, Copy, 
-  Eye, ListFilter, ZoomIn, ZoomOut, RotateCcw, Loader2, Sparkles
+  Eye, ListFilter, Sparkles
 } from 'lucide-react';
-import * as pdfjsLib from 'pdfjs-dist';
-
-// Set worker path to local public folder
-pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdfjs/pdf.worker.min.js';
 
 export const ResumeModal = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState('pdf'); // 'pdf' | 'overview'
-  const [loading, setLoading] = useState(true);
-  const [renderError, setRenderError] = useState(null);
-  const [zoomLevel, setZoomLevel] = useState(1); // 0.8, 1, 1.25, 1.5, 2
   const [copiedEmail, setCopiedEmail] = useState(false);
-
-  const canvasRef = useRef(null);
-  const containerRef = useRef(null);
-  const pdfDocRef = useRef(null);
 
   const emailAddress = import.meta.env.VITE_CONTACT_EMAIL || 'the.mrsarii@gmail.com';
   const resumeUrl = '/Resume.pdf';
@@ -37,83 +26,12 @@ export const ResumeModal = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
-  // Load and render PDF using PDF.js onto HTML5 Canvas
-  useEffect(() => {
-    if (!isOpen || activeTab !== 'pdf') return;
-
-    let isMounted = true;
-    setLoading(true);
-    setRenderError(null);
-
-    const renderPdfPage = async () => {
-      try {
-        let pdf = pdfDocRef.current;
-        if (!pdf) {
-          const loadingTask = pdfjsLib.getDocument(resumeUrl);
-          pdf = await loadingTask.promise;
-          if (!isMounted) return;
-          pdfDocRef.current = pdf;
-        }
-
-        const page = await pdf.getPage(1);
-        if (!isMounted) return;
-
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-
-        // Base scale for high DPI crispness (2x base) multiplied by user zoom
-        const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2.5);
-        const baseScale = 1.8 * devicePixelRatio * zoomLevel;
-        const viewport = page.getViewport({ scale: baseScale });
-
-        const context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        // Render PDF page to canvas
-        const renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-
-        await page.render(renderContext).promise;
-        if (isMounted) {
-          setLoading(false);
-        }
-      } catch (err) {
-        console.error('PDF.js render error:', err);
-        if (isMounted) {
-          setRenderError(err.message || 'Failed to render PDF');
-          setLoading(false);
-        }
-      }
-    };
-
-    renderPdfPage();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [isOpen, activeTab, zoomLevel]);
-
   if (!isOpen) return null;
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const handleZoomIn = () => {
-    setZoomLevel(prev => Math.min(prev + 0.25, 2.0));
-  };
-
-  const handleZoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 0.25, 0.75));
-  };
-
-  const handleResetZoom = () => {
-    setZoomLevel(1);
   };
 
   return (
@@ -186,40 +104,8 @@ export const ResumeModal = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Right: Zoom Controls & Download Action */}
+            {/* Right: Actions */}
             <div className="flex items-center gap-2 ml-auto">
-              {/* Zoom Controls (only active on PDF tab) */}
-              {activeTab === 'pdf' && (
-                <div className="hidden md:flex items-center gap-1 px-1.5 py-1 rounded-lg bg-[#07090D] border border-[#252B36] text-xs font-mono text-[#98A1AF]">
-                  <button
-                    onClick={handleZoomOut}
-                    className="p-1 rounded hover:text-white hover:bg-[#151B24] transition-colors"
-                    title="Zoom Out"
-                  >
-                    <ZoomOut className="w-3.5 h-3.5" />
-                  </button>
-                  <span className="px-1 text-[11px] min-w-[40px] text-center font-semibold text-neutral-300">
-                    {Math.round(zoomLevel * 100)}%
-                  </span>
-                  <button
-                    onClick={handleZoomIn}
-                    className="p-1 rounded hover:text-white hover:bg-[#151B24] transition-colors"
-                    title="Zoom In"
-                  >
-                    <ZoomIn className="w-3.5 h-3.5" />
-                  </button>
-                  {zoomLevel !== 1 && (
-                    <button
-                      onClick={handleResetZoom}
-                      className="p-1 rounded text-indigo-400 hover:text-white hover:bg-[#151B24] transition-colors ml-0.5"
-                      title="Reset Zoom"
-                    >
-                      <RotateCcw className="w-3 h-3" />
-                    </button>
-                  )}
-                </div>
-              )}
-
               {/* Direct Download Button */}
               <a
                 href={resumeUrl}
@@ -259,7 +145,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
           <div className="sm:hidden px-3 py-2 bg-[#090C10] border-b border-[#252B36] flex items-center justify-between text-[11px] font-mono">
             <span className="text-[#98A1AF] flex items-center gap-1 truncate mr-2">
               <Sparkles className="w-3 h-3 text-indigo-400 shrink-0" />
-              Resume.pdf (130 KB)
+              Resume.pdf
             </span>
             <div className="flex items-center gap-3 shrink-0">
               <a
@@ -284,58 +170,50 @@ export const ResumeModal = ({ isOpen, onClose }) => {
           {/* Body Content Area */}
           <div className="flex-1 overflow-hidden relative bg-[#07090D]">
             {activeTab === 'pdf' ? (
-              /* TAB 1: HTML5 Canvas PDF Preview (100% immune to "Blocked by Chrome", zero lag) */
-              <div 
-                ref={containerRef}
-                className="w-full h-full overflow-auto p-3 sm:p-6 flex flex-col items-center justify-start bg-[#090C10]"
-              >
-                {/* Loading state indicator */}
-                {loading && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#07090D]/80 backdrop-blur-sm z-20 space-y-3">
-                    <Loader2 className="w-8 h-8 text-indigo-400 animate-spin" />
-                    <span className="text-xs font-mono text-neutral-300">Rendering Resume Preview...</span>
-                  </div>
-                )}
-
-                {/* Error Fallback (if any issue occurs) */}
-                {renderError ? (
-                  <div className="my-auto text-center p-8 max-w-md bg-[#0C0F14] border border-[#252B36] rounded-2xl space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mx-auto">
-                      <FileText className="w-6 h-6" />
+              /* TAB 1: High-Performance Native PDF Viewer */
+              <div className="w-full h-full p-2 sm:p-4 bg-[#090C10] flex flex-col items-center justify-center">
+                <object
+                  data={`${resumeUrl}#view=FitH`}
+                  type="application/pdf"
+                  className="w-full h-full rounded-xl bg-white shadow-2xl border border-[#252B36]"
+                >
+                  <div className="flex flex-col items-center justify-center h-full p-8 text-center space-y-4 bg-[#0C0F14] rounded-xl border border-[#252B36]">
+                    <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                      <FileText className="w-7 h-7" />
                     </div>
-                    <h4 className="text-base font-bold text-white">Direct Download Ready</h4>
-                    <p className="text-xs text-[#98A1AF]">
-                      You can download the PDF file directly or open it in a new tab.
-                    </p>
-                    <div className="flex items-center justify-center gap-3 pt-2">
+                    <div className="space-y-1">
+                      <h4 className="text-base font-bold text-white">Muhammad Sarfaraz CV</h4>
+                      <p className="text-xs text-[#98A1AF] max-w-sm">
+                        You can download the PDF directly, open it in fullscreen, or view the complete structured overview.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                       <a
                         href={resumeUrl}
                         download={resumeFileName}
-                        className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-md transition-all"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-md transition-all hover:scale-[1.02]"
                       >
                         <Download className="w-4 h-4" />
-                        <span>Download Resume</span>
+                        <span>Download Resume (PDF)</span>
+                      </a>
+                      <a
+                        href={resumeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#151B24] hover:bg-[#1F2736] border border-[#252B36] text-white text-xs font-medium transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span>Open in Fullscreen</span>
                       </a>
                       <button
                         onClick={() => setActiveTab('overview')}
-                        className="px-4 py-2.5 rounded-xl bg-[#151B24] border border-[#252B36] text-xs text-neutral-300"
+                        className="px-5 py-2.5 rounded-xl bg-[#0F141C] border border-[#252B36] text-indigo-400 text-xs font-medium hover:bg-[#151B24] transition-colors"
                       >
-                        Quick Overview
+                        <span>View Text Overview</span>
                       </button>
                     </div>
                   </div>
-                ) : (
-                  /* Native HTML5 Canvas rendered by PDF.js */
-                  <div className="w-full flex justify-center py-2">
-                    <canvas
-                      ref={canvasRef}
-                      className="max-w-full h-auto shadow-2xl rounded-lg border border-[#252B36]/80 bg-white transition-transform duration-150"
-                      style={{
-                        width: `${Math.min(850 * zoomLevel, 1200)}px`
-                      }}
-                    />
-                  </div>
-                )}
+                </object>
               </div>
             ) : (
               /* TAB 2: Clean Structured Overview (Responsive HTML Version) */

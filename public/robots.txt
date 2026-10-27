@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /pdfjs/
 
 Sitemap: https://portfolio.mrsarii.com/sitemap.xml

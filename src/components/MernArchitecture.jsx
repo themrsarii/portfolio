@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Layers } from 'lucide-react';
 
 export const MernArchitecture = () => {
   const [selectedLayer, setSelectedLayer] = useState('react');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, BookOpen, Layers, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, BookOpen } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { ProjectMockup } from './ProjectMockup';
 import { projectsData } from '../data/projectsData';
