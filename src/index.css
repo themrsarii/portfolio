@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #07090D;
+    --bg-secondary: #0C0F14;
+    --bg-card: #11151C;
+    --border-color: #252B36;
+    --text-primary: #F5F7FA;
+    --text-secondary: #98A1AF;
+    --accent-primary: #6366F1;
+    --accent-secondary: #8B5CF6;
+    --accent-success: #22C55E;
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #4F46E5 #0C0F14;
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--bg-primary);
+  }
+
+  /* Custom prominent, premium engineering scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0C0F14;
+    border-left: 1px solid #1A202C;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4338CA;
+    border-radius: 9999px;
+    border: 2px solid #0C0F14;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6366F1;
+  }
+}
+
+/* Engineering-grade subtle utility classes */
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+.glow-subtle {
+  box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.12);
+}
+
+.glow-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card-hover:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 30px -10px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.grid-background {
+  background-image: linear-gradient(to right, rgba(37, 43, 54, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 43, 54, 0.35) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-nav {
+  background: rgba(7, 9, 13, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(37, 43, 54, 0.8);
+}
+
+.font-display-serif {
+  font-family: var(--font-serif);
+}
+
+.hero-portrait-mask {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.6) 74%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.6) 74%, transparent 96%);
+}
+
+.hero-grid-architectural {
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 16.666667% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 96%);
+}
+
+.hero-glow-backlight {
+  background: radial-gradient(circle at 50% 36%, rgba(99, 102, 241, 0.22) 0%, rgba(139, 92, 246, 0.12) 32%, transparent 70%);
+}
