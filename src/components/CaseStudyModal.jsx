@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, ExternalLink, Database, 
-  ArrowRight, CheckCircle2, AlertTriangle, ArrowUpRight
+  CheckCircle2, AlertTriangle, ArrowUpRight
 } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
@@ -26,10 +26,10 @@ export const CaseStudyModal = ({ project, onClose }) => {
   const cs = project.caseStudy;
 
   const tabs = [
-    { id: 'overview', label: '01. Overview & Solution' },
-    { id: 'architecture', label: '02. Architecture & Data Flow' },
-    { id: 'database', label: '03. Database & REST API' },
-    { id: 'engineering', label: '04. Challenges & Security' },
+    { id: 'overview', label: 'Overview & Solution' },
+    { id: 'architecture', label: 'Architecture & Data Flow' },
+    { id: 'database', label: 'Database & API' },
+    { id: 'engineering', label: 'Challenges & Security' },
   ];
 
   return (
@@ -41,57 +41,61 @@ export const CaseStudyModal = ({ project, onClose }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity"
+          className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm transition-opacity"
         />
 
         {/* Modal Window */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          initial={{ opacity: 0, scale: 0.96, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ type: 'spring', duration: 0.35, bounce: 0.1 }}
-          className="relative w-full max-w-4xl max-h-[90vh] bg-[#0C0F14] border border-[#252B36] rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden"
+          exit={{ opacity: 0, scale: 0.96, y: 15 }}
+          transition={{ duration: 0.25 }}
+          className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden"
         >
           {/* Top Bar Header */}
-          <div className="flex items-center justify-between p-5 sm:p-6 border-b border-[#252B36] bg-[#0F141C]">
+          <div className="flex items-center justify-between p-5 sm:p-6 border-b border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#14151B]">
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-950/70 text-indigo-300 border border-indigo-500/30">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-white dark:bg-[#1E2028] text-[#171717] dark:text-[#EDEDED] border border-[#E8E8E8] dark:border-[#2A2E38]">
                   {project.category}
                 </span>
-                <span className="text-xs font-mono text-[#98A1AF]">{project.badge}</span>
+                <span className="text-xs font-mono text-[#929292]">{project.badge}</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#F5F7FA] mt-1">
-                {project.title} - Architectural Case Study
+              <h2 className="text-xl sm:text-2xl font-bold text-[#171717] dark:text-[#EDEDED] mt-1">
+                {project.title}
               </h2>
             </div>
 
             <div className="flex items-center gap-2">
               {!project.isPlaceholder && (
                 <>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-[#151B24] border border-[#252B36] text-[#98A1AF] hover:text-white transition-colors"
-                    title="View Source on GitHub"
-                  >
-                    <GithubIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-sm transition-colors"
-                  >
-                    <span>Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-md bg-white dark:bg-[#181920] border border-[#E8E8E8] dark:border-[#282B34] text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white transition-colors"
+                      title="View Source on GitHub"
+                    >
+                      <GithubIcon className="w-4 h-4" />
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#171717] hover:bg-[#262626] dark:bg-[#EDEDED] dark:text-[#090A0C] dark:hover:bg-white text-white text-xs font-medium transition-colors"
+                    >
+                      <span>Live Site</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </>
               )}
               <button
                 onClick={onClose}
-                className="p-2 rounded-lg bg-[#151B24] hover:bg-[#1C2430] border border-[#252B36] text-[#98A1AF] hover:text-white transition-colors ml-1"
+                className="p-2 rounded-md bg-white dark:bg-[#181920] hover:bg-[#EAEAEA] dark:hover:bg-[#202228] border border-[#E8E8E8] dark:border-[#282B34] text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white transition-colors ml-1"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
@@ -100,15 +104,15 @@ export const CaseStudyModal = ({ project, onClose }) => {
           </div>
 
           {/* Sub-Nav Tabs */}
-          <div className="flex border-b border-[#252B36] bg-[#090C10] px-5 sm:px-6 overflow-x-auto gap-2">
+          <div className="flex border-b border-[#E8E8E8] dark:border-[#222429] bg-white dark:bg-[#0F1014] px-5 sm:px-6 overflow-x-auto gap-2">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-3 px-3 text-xs font-mono font-medium whitespace-nowrap border-b-2 transition-colors ${
                   activeTab === tab.id
-                    ? 'border-indigo-500 text-white'
-                    : 'border-transparent text-[#98A1AF] hover:text-neutral-300'
+                    ? 'border-indigo-600 dark:border-indigo-400 text-[#171717] dark:text-white font-semibold'
+                    : 'border-transparent text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white'
                 }`}
               >
                 {tab.label}
@@ -117,21 +121,21 @@ export const CaseStudyModal = ({ project, onClose }) => {
           </div>
 
           {/* Scrollable Content Body */}
-          <div className="p-6 sm:p-8 overflow-y-auto space-y-8 flex-1">
+          <div className="p-6 sm:p-8 overflow-y-auto space-y-8 flex-1 bg-white dark:bg-[#111216]">
             
             {/* TAB 1: OVERVIEW & SOLUTION */}
             {activeTab === 'overview' && (
               <div className="space-y-6">
                 {cs.collaborators && (
-                  <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-[#11151C] border border-[#252B36] text-xs font-mono">
+                  <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830] text-xs font-mono">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#98A1AF]">
+                      <span className="text-[#929292]">
                         {cs.client ? 'Project Stakeholders:' : 'Startup Collaboration:'}
                       </span>
-                      <span className="text-indigo-300 font-semibold">{cs.collaborators}</span>
+                      <span className="text-[#171717] dark:text-[#EDEDED] font-semibold">{cs.collaborators}</span>
                     </div>
                     {cs.productCategory && (
-                      <span className="px-2 py-0.5 rounded text-[11px] bg-indigo-950/60 border border-indigo-500/30 text-indigo-300">
+                      <span className="px-2 py-0.5 rounded text-[11px] bg-white dark:bg-[#1E2028] border border-[#E8E8E8] dark:border-[#2A2E38] text-[#171717] dark:text-[#EDEDED]">
                         {cs.productCategory}
                       </span>
                     )}
@@ -139,43 +143,43 @@ export const CaseStudyModal = ({ project, onClose }) => {
                 )}
 
                 <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-indigo-400 mb-2 font-semibold">
-                    01. Project Overview
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2 font-semibold">
+                    Project Overview
                   </h3>
-                  <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-[#666666] dark:text-[#A1A1AA] text-sm sm:text-base leading-relaxed">
                     {cs.overview}
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-5 rounded-xl bg-[#11151C] border border-[#252B36]">
-                    <div className="flex items-center gap-2 text-rose-400 font-mono text-xs uppercase mb-2 font-semibold">
+                  <div className="p-5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
+                    <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-mono text-xs uppercase mb-2 font-semibold">
                       <AlertTriangle className="w-4 h-4" /> The Problem
                     </div>
-                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-[#666666] dark:text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
                       {cs.problem}
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#11151C] border border-indigo-500/30">
-                    <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase mb-2 font-semibold">
+                  <div className="p-5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
+                    <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase mb-2 font-semibold">
                       <CheckCircle2 className="w-4 h-4" /> The Engineering Solution
                     </div>
-                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-[#666666] dark:text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
                       {cs.solution}
                     </p>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-indigo-400 mb-3 font-semibold">
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3 font-semibold">
                     Core Application Features
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {cs.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 p-3 rounded-lg bg-[#11151C] border border-[#252B36]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0" />
-                        <span className="text-xs sm:text-sm text-neutral-300">{feature}</span>
+                      <div key={idx} className="flex items-start gap-2.5 p-3 rounded-lg bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 mt-2 shrink-0" />
+                        <span className="text-xs sm:text-sm text-[#666666] dark:text-[#A1A1AA]">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -187,89 +191,29 @@ export const CaseStudyModal = ({ project, onClose }) => {
             {activeTab === 'architecture' && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-indigo-400 mb-2 font-semibold">
-                    05. System Architecture & Request Lifecycle
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2 font-semibold">
+                    System Architecture & Flow
                   </h3>
-                  <p className="text-neutral-300 text-sm leading-relaxed">
-                    A decoupled client-server architecture built on the MERN stack with strict separation of concerns, transactional integrity, and stateless JWT session management.
+                  <p className="text-[#666666] dark:text-[#A1A1AA] text-sm leading-relaxed">
+                    Decoupled architecture with clear tier boundaries, predictable data contracts, and production stability.
                   </p>
                 </div>
 
-                {/* Architecture Visual Diagram */}
-                <div className="p-5 rounded-xl bg-[#090C10] border border-[#252B36] font-mono">
-                  <div className="text-[11px] text-[#98A1AF] mb-4 pb-2 border-b border-[#252B36]">
-                    DATA FLOW DIAGRAM:
-                  </div>
-                  
-                  <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-center">
-                    {/* Tier 1 */}
-                    <div className="p-3 bg-[#11151C] border border-cyan-500/40 rounded-lg w-full md:w-auto flex-1">
-                      <span className="block text-[10px] text-cyan-400 font-bold">CLIENT TIER</span>
-                      <span className="font-semibold text-xs text-neutral-200">
-                        {project.technologies.includes('Bootstrap 5') ? 'Bootstrap 5 UI' : project.technologies.includes('Desktop Shell') ? 'React POS Client' : 'React 19 SPA'}
-                      </span>
-                      <span className="block text-[10px] text-neutral-400 mt-1">
-                        {project.technologies.includes('Bootstrap 5') ? 'AJAX & jQuery Handlers' : project.technologies.includes('Desktop Shell') ? 'Touch POS & Offline Dispatchers' : 'Virtual DOM & Hooks'}
-                      </span>
-                    </div>
-
-                    <ArrowRight className="hidden md:block w-4 h-4 text-indigo-400 shrink-0" />
-
-                    {/* Tier 2 */}
-                    <div className="p-3 bg-[#11151C] border border-indigo-500/40 rounded-lg w-full md:w-auto flex-1">
-                      <span className="block text-[10px] text-indigo-400 font-bold">API GATEWAY</span>
-                      <span className="font-semibold text-xs text-neutral-200">
-                        {project.technologies.includes('PHP') ? 'PHP Controllers' : 'RESTful Endpoints'}
-                      </span>
-                      <span className="block text-[10px] text-neutral-400 mt-1">JSON Payloads & AJAX</span>
-                    </div>
-
-                    <ArrowRight className="hidden md:block w-4 h-4 text-indigo-400 shrink-0" />
-
-                    {/* Tier 3 */}
-                    <div className="p-3 bg-[#11151C] border border-purple-500/40 rounded-lg w-full md:w-auto flex-1">
-                      <span className="block text-[10px] text-purple-400 font-bold">SERVER & RUNTIME</span>
-                      <span className="font-semibold text-xs text-neutral-200">
-                        {project.technologies.includes('PHP') ? 'PHP 8 + Apache' : 'Express + Node.js'}
-                      </span>
-                      <span className="block text-[10px] text-neutral-400 mt-1">
-                        {project.technologies.includes('Desktop Shell') ? 'Local Embedded Server' : 'Session & Business Logic'}
-                      </span>
-                    </div>
-
-                    <ArrowRight className="hidden md:block w-4 h-4 text-indigo-400 shrink-0" />
-
-                    {/* Tier 4 */}
-                    <div className="p-3 bg-[#11151C] border border-emerald-500/40 rounded-lg w-full md:w-auto flex-1">
-                      <span className="block text-[10px] text-emerald-400 font-bold">DATA STORE</span>
-                      <span className="font-semibold text-xs text-neutral-200">
-                        {project.technologies.includes('SQLite') ? 'SQLite Database' : project.technologies.includes('MySQL') ? 'MySQL Database' : 'MongoDB Database'}
-                      </span>
-                      <span className="block text-[10px] text-neutral-400 mt-1">
-                        {project.technologies.includes('SQLite') ? 'Local Offline Relational DB' : project.technologies.includes('MySQL') ? 'Relational Foreign Keys' : 'Indexed Documents'}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Tier Responsibilities Table */}
-                <div className="space-y-3">
-                  <h4 className="text-xs font-mono uppercase text-neutral-400">Component Responsibilities</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {cs.architecture.map((item, idx) => (
-                      <div key={idx} className="p-4 rounded-xl bg-[#11151C] border border-[#252B36]">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-xs font-bold text-indigo-300">{item.tier}</span>
-                          <span className="text-[10px] font-mono text-neutral-400 bg-[#0C0F14] px-2 py-0.5 rounded border border-[#252B36]">
-                            {item.tech}
-                          </span>
-                        </div>
-                        <p className="text-xs text-neutral-300 mt-2 leading-relaxed">
-                          {item.role}
-                        </p>
+                {/* Tier Responsibilities Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {cs.architecture.map((item, idx) => (
+                    <div key={idx} className="p-4 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-xs font-bold text-[#171717] dark:text-[#EDEDED]">{item.tier}</span>
+                        <span className="text-[10px] font-mono text-[#666666] dark:text-[#A1A1AA] bg-white dark:bg-[#111216] px-2 py-0.5 rounded border border-[#E8E8E8] dark:border-[#222429]">
+                          {item.tech}
+                        </span>
                       </div>
-                    ))}
-                  </div>
+                      <p className="text-xs text-[#666666] dark:text-[#A1A1AA] leading-relaxed">
+                        {item.role}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -278,25 +222,17 @@ export const CaseStudyModal = ({ project, onClose }) => {
             {activeTab === 'database' && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-indigo-400 mb-2 font-semibold">
-                    06. Database Schema Design {project.technologies.includes('SQLite') ? '(SQLite Local Relational Database)' : project.technologies.includes('MySQL') ? '(MySQL Relational Tables)' : '(MongoDB Collections)'}
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2 font-semibold">
+                    Database Schema Design
                   </h3>
-                  <p className="text-neutral-300 text-sm mb-3">
-                    {project.technologies.includes('SQLite')
-                      ? 'Local SQLite database file (retailspoint.sqlite) organized with relational table schemas, foreign key integrity, and ACID transaction safety for offline-first desktop reliability.'
-                      : project.technologies.includes('MySQL')
-                      ? 'Relational MySQL tables normalized with foreign key constraints, composite unique indexes, and indexed query paths for sub-15ms social graph queries.'
-                      : 'Mongoose schemas normalized with foreign key references and compound indexes to balance write performance and query speed.'}
-                  </p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
                     {cs.databaseSchema.map((col, idx) => (
-                      <div key={idx} className="p-3.5 rounded-lg bg-[#11151C] border border-[#252B36]">
+                      <div key={idx} className="p-3.5 rounded-lg bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
                         <div className="flex items-center gap-2 mb-1.5">
-                          <Database className="w-3.5 h-3.5 text-emerald-400" />
-                          <span className="text-xs font-bold text-neutral-200">{col.collection}</span>
+                          <Database className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                          <span className="text-xs font-bold text-[#171717] dark:text-[#EDEDED]">{col.collection}</span>
                         </div>
-                        <div className="font-mono text-[11px] text-neutral-400 bg-[#090C10] p-2 rounded border border-[#252B36]/60 break-words">
+                        <div className="font-mono text-[11px] text-[#666666] dark:text-[#A1A1AA] bg-white dark:bg-[#111216] p-2 rounded border border-[#E8E8E8] dark:border-[#222429] break-words">
                           {col.fields}
                         </div>
                       </div>
@@ -305,32 +241,28 @@ export const CaseStudyModal = ({ project, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-indigo-400 mb-2 font-semibold">
-                    07. RESTful API Contract
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2 font-semibold">
+                    RESTful API Endpoints
                   </h3>
-                  <div className="border border-[#252B36] rounded-xl overflow-hidden bg-[#090C10]">
+                  <div className="border border-[#E8E8E8] dark:border-[#222429] rounded-xl overflow-hidden bg-white dark:bg-[#111216]">
                     <table className="w-full text-left text-xs font-mono">
-                      <thead className="bg-[#11151C] border-b border-[#252B36] text-[#98A1AF] text-[11px]">
+                      <thead className="bg-[#F7F7F5] dark:bg-[#16171E] border-b border-[#E8E8E8] dark:border-[#222429] text-[#929292] text-[11px]">
                         <tr>
                           <th className="p-3">Method</th>
                           <th className="p-3">Endpoint</th>
                           <th className="p-3">Description & Payload</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#252B36]/60 text-neutral-300">
+                      <tbody className="divide-y divide-[#E8E8E8] dark:divide-[#222429] text-[#666666] dark:text-[#A1A1AA]">
                         {cs.apiEndpoints.map((ep, idx) => (
-                          <tr key={idx} className="hover:bg-white/[0.02]">
+                          <tr key={idx} className="hover:bg-black/[0.01] dark:hover:bg-white/[0.01]">
                             <td className="p-3">
-                              <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                                ep.method === 'GET' ? 'bg-blue-950/60 text-blue-300 border border-blue-500/30' :
-                                ep.method === 'POST' ? 'bg-emerald-950/60 text-emerald-300 border border-emerald-500/30' :
-                                'bg-amber-950/60 text-amber-300 border border-amber-500/30'
-                              }`}>
+                              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#F2F2F0] dark:bg-[#181920] text-[#171717] dark:text-[#EDEDED] border border-[#E8E8E8] dark:border-[#282B34]">
                                 {ep.method}
                               </span>
                             </td>
-                            <td className="p-3 text-indigo-300 font-semibold">{ep.path}</td>
-                            <td className="p-3 text-neutral-400 font-sans">{ep.desc}</td>
+                            <td className="p-3 text-[#171717] dark:text-[#EDEDED] font-semibold">{ep.path}</td>
+                            <td className="p-3 text-[#666666] dark:text-[#A1A1AA] font-sans">{ep.desc}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -344,62 +276,64 @@ export const CaseStudyModal = ({ project, onClose }) => {
             {activeTab === 'engineering' && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-indigo-400 mb-2 font-semibold">
-                    08. Authentication & Security Hardening
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2 font-semibold">
+                    Security & Hardening
                   </h3>
-                  <div className="p-4 rounded-xl bg-[#11151C] border border-[#252B36] text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                  <div className="p-4 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830] text-xs sm:text-sm text-[#666666] dark:text-[#A1A1AA] leading-relaxed">
                     <p>{cs.security}</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-5 rounded-xl bg-[#11151C] border border-amber-500/30">
-                    <span className="text-xs font-mono uppercase text-amber-400 font-semibold block mb-2">
-                      09. Key Technical Challenge
+                  <div className="p-5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
+                    <span className="text-xs font-mono uppercase text-[#171717] dark:text-[#EDEDED] font-semibold block mb-2">
+                      Key Technical Challenge
                     </span>
-                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#666666] dark:text-[#A1A1AA] leading-relaxed">
                       {cs.challenges}
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#11151C] border border-emerald-500/30">
-                    <span className="text-xs font-mono uppercase text-emerald-400 font-semibold block mb-2">
-                      10. Engineering Solution Applied
+                  <div className="p-5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
+                    <span className="text-xs font-mono uppercase text-emerald-600 dark:text-emerald-400 font-semibold block mb-2">
+                      Engineering Solution
                     </span>
-                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#666666] dark:text-[#A1A1AA] leading-relaxed">
                       {cs.solutionApplied}
                     </p>
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-indigo-400 mb-3 font-semibold">
-                    12. Future Architectural Improvements
-                  </h3>
-                  <ul className="space-y-2">
-                    {cs.futureImprovements.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 p-2.5 rounded-lg bg-[#11151C] border border-[#252B36]">
-                        <ArrowUpRight className="w-4 h-4 text-indigo-400 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {cs.futureImprovements && (
+                  <div>
+                    <h3 className="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3 font-semibold">
+                      Future Improvements Roadmap
+                    </h3>
+                    <ul className="space-y-2">
+                      {cs.futureImprovements.map((item, idx) => (
+                        <li key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#666666] dark:text-[#A1A1AA] p-2.5 rounded-lg bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
+                          <ArrowUpRight className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             )}
 
           </div>
 
           {/* Footer Bar */}
-          <div className="p-4 sm:p-5 border-t border-[#252B36] bg-[#0F141C] flex items-center justify-between">
-            <span className="text-xs font-mono text-[#98A1AF]">
-              Muhammad Sarfaraz • Production Quality Architecture
+          <div className="p-4 sm:p-5 border-t border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#14151B] flex items-center justify-between">
+            <span className="text-xs font-mono text-[#929292]">
+              Muhammad Sarfaraz • Full Stack Architecture
             </span>
             <button
               onClick={onClose}
-              className="px-4 py-2 text-xs font-semibold text-neutral-200 bg-[#151B24] hover:bg-[#1C2430] border border-[#252B36] rounded-lg transition-colors"
+              className="px-4 py-2 text-xs font-medium text-[#171717] dark:text-[#EDEDED] bg-white dark:bg-[#181920] hover:bg-[#EAEAEA] dark:hover:bg-[#202228] border border-[#E8E8E8] dark:border-[#282B34] rounded-md transition-colors"
             >
-              Close Case Study
+              Close
             </button>
           </div>
         </motion.div>
@@ -407,3 +341,5 @@ export const CaseStudyModal = ({ project, onClose }) => {
     </AnimatePresence>
   );
 };
+
+export default CaseStudyModal;

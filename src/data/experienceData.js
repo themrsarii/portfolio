@@ -1,20 +1,20 @@
 export const experienceData = [
   {
-    period: "2024 - Present",
-    role: "MERN Stack Developer & Full-Stack Builder",
+    period: "2024 to Present",
+    role: "MERN Stack Developer",
     company: "Independent Software Projects",
     location: "Remote / Pakistan",
     type: "Engineering",
     highlights: [
-      "Architected and deployed full-stack SaaS applications using React, Node.js, Express, and MongoDB",
+      "Built and deployed full-stack web applications using React, Node.js, Express, and MongoDB",
       "Designed RESTful API endpoints with JWT authentication, RBAC authorization, and input validation schemas",
-      "Integrated AI capabilities via OpenAI APIs to deliver streaming co-pilot assistants and semantic search features",
+      "Integrated OpenAI APIs for streaming assistants and interactive search features",
       "Engineered responsive, accessible frontends using Tailwind CSS with a strong focus on Core Web Vitals"
     ]
   },
   {
-    period: "2025 - Present",
-    role: "Full-Stack Developer - Retailspoint POS",
+    period: "2025 to Present",
+    role: "Full-Stack Developer (Retailspoint POS)",
     company: "Retailspoint",
     location: "Restaurant Management SaaS",
     type: "Engineering Milestones",

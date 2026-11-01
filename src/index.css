@@ -1,108 +1,228 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
 @layer base {
   :root {
-    --bg-primary: #07090D;
-    --bg-secondary: #0C0F14;
-    --bg-card: #11151C;
-    --border-color: #252B36;
-    --text-primary: #F5F7FA;
-    --text-secondary: #98A1AF;
-    --accent-primary: #6366F1;
-    --accent-secondary: #8B5CF6;
-    --accent-success: #22C55E;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F7F7F5;
+    --bg-surface: #FFFFFF;
+    --bg-surface-elevated: #F9F9F8;
+    --border-subtle: #E8E8E8;
+    --border-strong: #D4D4D4;
+    --text-primary: #171717;
+    --text-secondary: #666666;
+    --text-muted: #929292;
+    --accent: #6366F1;
+    --accent-subtle: #EEF2FF;
+    --accent-hover: #4F46E5;
+  }
 
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-serif: 'Instrument Serif', Georgia, serif;
-    --font-mono: 'JetBrains Mono', monospace;
+  .dark {
+    --bg-primary: #090A0C;
+    --bg-secondary: #0F1013;
+    --bg-surface: #131418;
+    --bg-surface-elevated: #18191E;
+    --border-subtle: #222429;
+    --border-strong: #2E3138;
+    --text-primary: #EDEDED;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+    --accent: #6366F1;
+    --accent-subtle: rgba(99, 102, 241, 0.12);
+    --accent-hover: #818CF8;
   }
 
   html {
     scroll-behavior: smooth;
     overflow-y: scroll;
     scrollbar-width: thin;
-    scrollbar-color: #4F46E5 #0C0F14;
+    scrollbar-color: #D4D4D4 transparent;
     font-family: var(--font-sans);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+  }
+
+  html.dark {
+    scrollbar-color: #2E3138 transparent;
   }
 
   body {
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: var(--bg-primary);
   }
 
-  /* Custom prominent, premium engineering scrollbar */
+  /* Refined, minimal editorial scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #0C0F14;
-    border-left: 1px solid #1A202C;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #4338CA;
+    background: #D4D4D4;
     border-radius: 9999px;
-    border: 2px solid #0C0F14;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #2E3138;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #6366F1;
+    background: #929292;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #474B54;
   }
 }
 
-/* Engineering-grade subtle utility classes */
+/* Swiss Modernist & Editorial Refinements */
 .font-mono-code {
   font-family: var(--font-mono);
-}
-
-.glow-subtle {
-  box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.12);
-}
-
-.glow-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glow-card-hover:hover {
-  border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: 0 8px 30px -10px rgba(99, 102, 241, 0.15);
-  transform: translateY(-2px);
-}
-
-.grid-background {
-  background-image: linear-gradient(to right, rgba(37, 43, 54, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(37, 43, 54, 0.35) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.glass-nav {
-  background: rgba(7, 9, 13, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(37, 43, 54, 0.8);
 }
 
 .font-display-serif {
   font-family: var(--font-serif);
 }
 
-.hero-portrait-mask {
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.6) 74%, transparent 96%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.6) 74%, transparent 96%);
+/* Restrained, crisp micro-interactions (No neon glows) */
+.editorial-card {
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.hero-grid-architectural {
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 16.666667% 100%;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 96%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 96%);
+.editorial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.08);
 }
 
-.hero-glow-backlight {
-  background: radial-gradient(circle at 50% 36%, rgba(99, 102, 241, 0.22) 0%, rgba(139, 92, 246, 0.12) 32%, transparent 70%);
+.dark .editorial-card:hover {
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.45);
 }
+
+/* Subtle architectural grid pattern with extremely low opacity */
+.subtle-grid {
+  background-size: 32px 32px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.dark .subtle-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Seamless Marquee Loop with Pause on Hover */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover,
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+/* Light-Mode Adaptations for Project Mockups in Selected Work */
+html:not(.dark) .mockup-theme {
+  color-scheme: light;
+}
+
+html:not(.dark) .mockup-theme .bg-\[\#080B10\],
+html:not(.dark) .mockup-theme .bg-\[\#090C10\],
+html:not(.dark) .mockup-theme .bg-\[\#090C11\],
+html:not(.dark) .mockup-theme .bg-\[\#0A0E15\],
+html:not(.dark) .mockup-theme .bg-\[\#0D1117\] {
+  background-color: #F8F9FA !important;
+  color: #111827 !important;
+}
+
+html:not(.dark) .mockup-theme .bg-\[\#0C1017\],
+html:not(.dark) .mockup-theme .bg-\[\#0B0E14\],
+html:not(.dark) .mockup-theme .bg-\[\#0F141C\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+html:not(.dark) .mockup-theme .bg-\[\#141B24\],
+html:not(.dark) .mockup-theme .bg-\[\#151B24\],
+html:not(.dark) .mockup-theme .bg-\[\#11151C\],
+html:not(.dark) .mockup-theme .bg-\[\#111620\],
+html:not(.dark) .mockup-theme .bg-\[\#111A26\],
+html:not(.dark) .mockup-theme .bg-\[\#12161F\],
+html:not(.dark) .mockup-theme .bg-\[\#121822\],
+html:not(.dark) .mockup-theme .bg-\[\#131923\],
+html:not(.dark) .mockup-theme .bg-\[\#131A24\],
+html:not(.dark) .mockup-theme .bg-\[\#151C26\],
+html:not(.dark) .mockup-theme .bg-\[\#151D28\],
+html:not(.dark) .mockup-theme .bg-\[\#161F2C\],
+html:not(.dark) .mockup-theme .bg-\[\#1A2230\],
+html:not(.dark) .mockup-theme .bg-\[\#0E131A\],
+html:not(.dark) .mockup-theme .bg-\[\#0E131C\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+html:not(.dark) .mockup-theme [class*="border-[#252B36]"],
+html:not(.dark) .mockup-theme [class*="border-[#0E131A]"],
+html:not(.dark) .mockup-theme [class*="border-[#0A0E15]"] {
+  border-color: #E5E7EB !important;
+}
+
+html:not(.dark) .mockup-theme .text-white,
+html:not(.dark) .mockup-theme .text-neutral-100,
+html:not(.dark) .mockup-theme .text-neutral-200,
+html:not(.dark) .mockup-theme .text-\[\#F5F7FA\] {
+  color: #111827 !important;
+}
+
+html:not(.dark) .mockup-theme .text-neutral-300,
+html:not(.dark) .mockup-theme .text-neutral-400,
+html:not(.dark) .mockup-theme .text-\[\#98A1AF\] {
+  color: #4B5563 !important;
+}
+
+html:not(.dark) .mockup-theme .text-neutral-500 {
+  color: #6B7280 !important;
+}
+
+html:not(.dark) .mockup-theme input,
+html:not(.dark) .mockup-theme textarea {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+  border-color: #D1D5DB !important;
+}
+
+html:not(.dark) .mockup-theme input::placeholder,
+html:not(.dark) .mockup-theme textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
+html:not(.dark) .mockup-theme .ring-\[\#0C1017\] {
+  --tw-ring-color: #FFFFFF !important;
+}
+
+

@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, FileText, ArrowUpRight, Terminal } from 'lucide-react';
+import { Menu, X, FileText, ArrowUpRight, Sun, Moon } from 'lucide-react';
 
-export const Navbar = ({ onOpenResume }) => {
+export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 20);
-
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
-      setScrollProgress(progress);
 
       const sections = ['hero', 'work', 'architecture', 'engineering', 'skills', 'experience', 'about', 'contact'];
       for (const sectionId of sections) {
@@ -37,7 +32,7 @@ export const Navbar = ({ onOpenResume }) => {
   const navLinks = [
     { name: 'Work', href: '#work' },
     { name: 'Architecture', href: '#architecture' },
-    { name: 'How I Build', href: '#engineering' },
+    { name: 'Process', href: '#engineering' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'About', href: '#about' },
@@ -46,58 +41,50 @@ export const Navbar = ({ onOpenResume }) => {
 
   return (
     <>
-      {/* Top Scroll Progress Bar */}
-      <div 
-        className="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 z-50 transition-all duration-100"
-        style={{ width: `${scrollProgress}%` }}
-      />
-
-      <header 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled 
-            ? 'glass-nav py-3' 
-            : 'bg-transparent py-5'
-        }`}
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${scrolled
+            ? 'bg-[#FFFFFF]/90 dark:bg-[#090A0C]/90 backdrop-blur-md border-b border-[#E8E8E8] dark:border-[#222429] py-3 shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-none'
+            : 'bg-transparent py-4 sm:py-5 border-b border-transparent'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo / Brand Name */}
-          <a 
-            href="#hero" 
-            className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-md px-1 py-0.5"
+          {/* Brand & Identity */}
+          <a
+            href="#hero"
+            className="group flex items-center gap-3 focus:outline-none rounded-md"
           >
-            <div className="w-8 h-8 rounded-lg bg-[#11151C] border border-[#252B36] flex items-center justify-center text-indigo-400 group-hover:border-indigo-500/50 transition-colors">
-              <Terminal className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-md bg-[#171717] dark:bg-[#EDEDED] text-white dark:text-[#171717] flex items-center justify-center font-mono font-semibold text-xs transition-transform group-hover:scale-105">
+              MS
             </div>
             <div className="flex flex-col">
-              <span className="text-sm sm:text-base font-bold tracking-tight text-[#F5F7FA] group-hover:text-white transition-colors">
-                MUHAMMAD SARFARAZ
+              <span className="text-sm font-semibold tracking-tight text-[#171717] dark:text-[#EDEDED] transition-colors">
+                Muhammad Sarfaraz
               </span>
-              <span className="font-mono text-[10px] tracking-wider text-indigo-400 font-semibold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                MERN DEVELOPER
+              <span className="font-mono text-[10px] tracking-wider text-[#666666] dark:text-[#929292] font-medium flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                FULL STACK ENGINEER
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#11151C]/70 border border-[#252B36] rounded-full px-4 py-1.5 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 bg-[#F7F7F5] dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] rounded-full px-3 py-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-1 text-xs font-medium rounded-full transition-all relative ${
-                    isActive
-                      ? 'text-white'
-                      : 'text-[#98A1AF] hover:text-[#F5F7FA] hover:bg-white/5'
-                  }`}
+                  className={`px-3 py-1 text-xs font-medium rounded-full transition-all relative ${isActive
+                      ? 'text-[#171717] dark:text-white'
+                      : 'text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white'
+                    }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute inset-0 bg-indigo-600/30 border border-indigo-500/40 rounded-full"
-                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                      className="absolute inset-0 bg-white dark:bg-[#202228] border border-[#E8E8E8] dark:border-[#2E3138] rounded-full shadow-sm"
+                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                     />
                   )}
                   <span className="relative z-10">{link.name}</span>
@@ -106,32 +93,56 @@ export const Navbar = ({ onOpenResume }) => {
             })}
           </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Action CTAs & Theme Toggle */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={onToggleTheme}
+              className="p-1.5 rounded-md border border-[#E8E8E8] dark:border-[#222429] bg-white dark:bg-[#131418] text-[#666666] dark:text-white hover:text-[#171717] dark:hover:text-white transition-colors"
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-amber-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-[#171717]" />
+              )}
+            </button>
+
             <button
               onClick={onOpenResume}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-[#F5F7FA] bg-[#11151C] hover:bg-[#1A202C] border border-[#252B36] hover:border-indigo-500/50 rounded-lg transition-all shadow-sm group"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#171717] dark:text-[#EDEDED] bg-white dark:bg-[#131418] hover:bg-[#F7F7F5] dark:hover:bg-[#18191E] border border-[#E8E8E8] dark:border-[#222429] rounded-md transition-colors"
             >
-              <FileText className="w-3.5 h-3.5 text-indigo-400 group-hover:scale-110 transition-transform" />
+              <FileText className="w-3.5 h-3.5 text-[#666666] dark:text-[#A1A1AA]" />
               <span>Resume</span>
             </button>
+
             <a
               href="#contact"
-              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-all shadow-sm shadow-indigo-600/20"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-white bg-[#171717] hover:bg-[#262626] dark:bg-[#EDEDED] dark:text-[#090A0C] dark:hover:bg-white rounded-md transition-colors"
             >
-              <span>Get In Touch</span>
+              <span>Get in touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#98A1AF] hover:text-white bg-[#11151C] border border-[#252B36]"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile Menu & Theme Toggle */}
+          <div className="flex sm:hidden items-center gap-1.5">
+            <button
+              onClick={onToggleTheme}
+              className="p-1.5 rounded-md border border-[#E8E8E8] dark:border-[#222429] bg-white dark:bg-[#131418] text-[#666666] dark:text-[#A1A1AA]"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#171717]" />}
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-1.5 rounded-md text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white bg-white dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429]"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -139,42 +150,42 @@ export const Navbar = ({ onOpenResume }) => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-30 bg-[#0C0F14]/98 border-b border-[#252B36] p-6 shadow-2xl backdrop-blur-xl md:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.15 }}
+            className="fixed inset-x-0 top-[60px] z-30 bg-[#FFFFFF] dark:bg-[#0E0F13] border-b border-[#E8E8E8] dark:border-[#222429] p-5 shadow-xl sm:hidden"
           >
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-1.5">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-2.5 text-sm font-medium text-[#98A1AF] hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-between justify-between"
+                  className="px-3.5 py-2 text-sm font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white hover:bg-[#F7F7F5] dark:hover:bg-[#14151A] rounded-md transition-colors flex items-center justify-between"
                 >
                   <span>{link.name}</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#98A1AF]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
                 </a>
               ))}
-              <div className="pt-4 border-t border-[#252B36] flex flex-col gap-2.5">
+              <div className="pt-3 mt-2 border-t border-[#E8E8E8] dark:border-[#222429] flex flex-col gap-2">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenResume();
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-[#F5F7FA] bg-[#11151C] border border-[#252B36] rounded-lg"
+                  className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-[#171717] dark:text-[#EDEDED] bg-[#F7F7F5] dark:bg-[#14151A] border border-[#E8E8E8] dark:border-[#222429] rounded-md"
                 >
-                  <FileText className="w-4 h-4 text-indigo-400" />
+                  <FileText className="w-3.5 h-3.5" />
                   <span>View Resume</span>
                 </button>
                 <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg shadow-sm"
+                  className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-white bg-[#171717] dark:bg-[#EDEDED] dark:text-[#090A0C] rounded-md"
                 >
-                  <span>Contact Muhammad</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span>Get in touch</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

@@ -1,8 +1,8 @@
 export const projectsData = [
   {
     id: "retailspoint-pos",
-    title: "Retailspoint - Restaurant POS System",
-    badge: "01 / PRODUCTION-FOCUSED",
+    title: "Retailspoint: Restaurant POS System",
+    badge: "SaaS Product",
     category: "Full-Stack Architecture",
     statusBadge: "Live: Startup Product",
     description: "A restaurant Point of Sale (POS) product built to streamline order management, billing, inventory tracking, and sales reporting. Developed collaboratively by Muhammad Sarfaraz and Hasan Tariq as a startup product with an offline-first desktop edition.",
@@ -25,15 +25,15 @@ export const projectsData = [
       problem: "Restaurants manage multiple interconnected operations daily: customer orders, billing, kitchen communication, inventory, and sales tracking. When these workflows are disconnected, staff face unnecessary manual friction, order delays, and cash discrepancies, while business owners struggle to maintain a clear view of daily operations without reliable internet connectivity.",
       solution: "Retailspoint provides a centralized, practical POS engineering solution that unifies front-of-house order taking with kitchen operations and back-office tracking. Its offline-first architecture allows orders, bills, and inventory updates to process locally with zero latency, syncing records and maintaining continuous operational reliability even when internet connectivity drops.",
       features: [
-        "01. Order Management: Multi-channel ordering (dine-in, takeaway, delivery) with menu modifiers, item notes, and fast quantity adjustments",
-        "02. Billing & Payments: Multi-tender payment processing, automated taxes, discount overrides, and instant receipt generation",
-        "03. Kitchen Order Tickets (KOT): Asynchronous ticket dispatch directly to kitchen stations to bridge front-of-house and kitchen operations",
-        "04. Table Management: Visual table status monitoring (vacant, occupied, reserved) with table-transfer and table-merging workflows",
-        "05. Inventory Management: Real-time stock tracking, low-stock warning indicators, incoming stock ledger, and wastage logging",
-        "06. Sales Reports & Analytics: Comprehensive daily sales summaries, category-wise breakdowns, shift audits, and revenue metrics",
-        "07. Shift & Cash Management: Opening float records, cash-in/cash-out movements, and closing balance reconciliation with over/short reporting",
-        "08. Staff & Access Management: Role-based staff authorization (cashier, kitchen, manager) with protected administrative controls",
-        "09. Offline-First Desktop Operations: Local operational engine powered by SQLite ensuring uninterrupted POS workflows during internet outages"
+        "Order Management: Multi-channel ordering (dine-in, takeaway, delivery) with menu modifiers, item notes, and fast quantity adjustments",
+        "Billing & Payments: Multi-tender payment processing, automated taxes, discount overrides, and instant receipt generation",
+        "Kitchen Order Tickets (KOT): Asynchronous ticket dispatch directly to kitchen stations to bridge front-of-house and kitchen operations",
+        "Table Management: Visual table status monitoring (vacant, occupied, reserved) with table-transfer and table-merging workflows",
+        "Inventory Management: Real-time stock tracking, low-stock warning indicators, incoming stock ledger, and wastage logging",
+        "Sales Reports & Analytics: Comprehensive daily sales summaries, category-wise breakdowns, shift audits, and revenue metrics",
+        "Shift & Cash Management: Opening float records, cash-in/cash-out movements, and closing balance reconciliation with over/short reporting",
+        "Staff & Access Management: Role-based staff authorization (cashier, kitchen, manager) with protected administrative controls",
+        "Offline-First Desktop Operations: Local operational engine powered by SQLite ensuring uninterrupted POS workflows during internet outages"
       ],
       architecture: [
         { tier: "Desktop POS Client", tech: "React.js + Desktop Shell", role: "High-density touch POS interface, active order tickets, dynamic table layouts, and offline state dispatchers" },
@@ -58,7 +58,7 @@ export const projectsData = [
         { method: "GET", path: "/api/pos/reports/daily-sales", desc: "Aggregates revenue, tax collections, payment methods, and item velocity" }
       ],
       security: "Role-based staff workflows with authorized administrative controls, machine-associated monthly activation and renewal management, local SQLite database encryption and automated backups, and parameterized SQL queries preventing data corruption.",
-      challenges: "Supporting seamless offline desktop operations in fast-paced restaurant environments where internet outages are common, while maintaining strict order integrity, KOT communication, and cash drawer accountability.",
+      challenges: "Supporting reliable offline desktop operations in fast-paced restaurant environments where internet outages are common, while maintaining strict order integrity, KOT communication, and cash drawer accountability.",
       solutionApplied: "Architected an offline-first workflow utilizing a local SQLite database (retailspoint.sqlite) and local Node/Express runtime. Every transaction commits instantly to local storage with automated shift reconciliation and background synchronization upon network recovery.",
       futureImprovements: [
         "Kitchen Display System (KDS) interactive touchscreen tablet app with real-time cooking timers",
@@ -71,7 +71,7 @@ export const projectsData = [
   {
     id: "social-networking-platform",
     title: "Social Networking Platform",
-    badge: "02 / FEATURED WEB APP",
+    badge: "Full-Stack Project",
     category: "Full-Stack Social Platform",
     statusBadge: "Active: Social Interactions",
     description: "A full-stack social networking platform built to deliver a dynamic, database-driven social experience with user profiles, media posts, reactions, comments, friendships, and notifications. Engineered with AJAX-powered interactions to keep core social actions responsive without requiring full-page reloads.",
@@ -132,7 +132,7 @@ export const projectsData = [
   {
     id: "bilal-shahpur-foods",
     title: "Bilal Shahpur Foods",
-    badge: "03 / FEATURED WEB APP",
+    badge: "Business Platform",
     category: "Full-Stack Business Platform",
     statusBadge: "Live: Production",
     description: "A production-ready Urdu-first business platform designed to bring a traditional dairy brand online with product discovery, retailer partnerships, customer inquiries, and interactive product experiences. Built with a responsive React frontend and Express backend to provide a scalable foundation for managing products, retailers, contacts, and business data.",
@@ -188,8 +188,8 @@ export const projectsData = [
   },
   {
     id: "primelinks-business-website",
-    title: "PrimeLinks - Business Website",
-    badge: "04 / BUSINESS WEBSITE",
+    title: "PrimeLinks: Business Website",
+    badge: "Client Project",
     category: "Web Development",
     statusBadge: "Client Project · Nasir",
     description: "A professionally designed business website created to establish a stronger digital presence for PrimeLinks, with a focus on modern presentation, user experience, and business-focused design. Developed by Muhammad Sarfaraz for client Nasir.",
@@ -214,12 +214,12 @@ export const projectsData = [
       problem: "Businesses need a professional digital presence to introduce their services, communicate their value clearly, and make information easily accessible to potential clients. Without a dedicated modern website, businesses miss out on client discovery, customer trust, and clear communication of their service offerings.",
       solution: "PrimeLinks was engineered as a high-performance business website with a clean visual hierarchy, modern UI/UX design, and mobile-first responsiveness. Built using React and Tailwind CSS, the platform organizes business services into structured, intuitive layouts with clear call-to-actions, elevating the brand's digital presence and client accessibility.",
       features: [
-        "01. Professional Brand Showcase: Clean visual hierarchy with hero introduction, value proposition, and brand identity",
-        "02. Service & Solutions Catalog: Structured presentation of business offerings with comprehensive service breakdowns",
-        "03. Modern & Responsive Layout: Mobile-first interface engineered for flawless presentation across all screen sizes",
-        "04. Client Inquiry Touchpoints: Accessible consultation request workflows and direct communication channels",
-        "05. Business-Focused UX: Intuitive navigation structure guiding potential clients from discovery to engagement",
-        "06. Optimized Web Performance: Clean component architecture with fast load times and accessible semantic HTML5"
+        "Professional Brand Showcase: Clean visual hierarchy with hero introduction, value proposition, and brand identity",
+        "Service & Solutions Catalog: Structured presentation of business offerings with comprehensive service breakdowns",
+        "Modern & Responsive Layout: Mobile-first interface engineered for flawless presentation across all screen sizes",
+        "Client Inquiry Touchpoints: Accessible consultation request workflows and direct communication channels",
+        "Business-Focused UX: Intuitive navigation structure guiding potential clients from discovery to engagement",
+        "Optimized Web Performance: Clean component architecture with fast load times and accessible semantic HTML5"
       ],
       architecture: [
         { tier: "Frontend Client", tech: "React 19 + Vite", role: "Component-driven responsive interface, modular layout sections, and dynamic state management" },

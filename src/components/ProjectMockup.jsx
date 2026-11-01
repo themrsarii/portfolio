@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  CheckCircle2, Clock, Sparkles, AlertCircle, ArrowUpRight, 
-  Layers, Database, Shield, Zap, Search, Bell,
+  CheckCircle2, Clock, ArrowUpRight, 
+  Shield, Zap, Search, Bell,
   ThumbsUp, MessageSquare, Share2, UserPlus, Users, Bookmark,
   ShoppingBag, Home, Globe, Send, MoreHorizontal, Image, Smile,
   Heart, Check, X, User,
@@ -658,7 +658,7 @@ const UrduFoodBusinessMockup = () => {
                     خالص دیسی ڈیری مصنوعات کا بااعتماد نام
                   </h3>
                   <p className="text-[9px] sm:text-[10px] text-neutral-300 mt-0.5 line-clamp-1">
-                    دیسی قلفی، قدرتی دیسی گھی، تازہ کھویا اور دیسی مکھن - 100% خالص دودھ سے تیار کردہ۔
+                    دیسی قلفی، قدرتی دیسی گھی، تازہ کھویا اور دیسی مکھن، 100% خالص دودھ سے تیار کردہ۔
                   </p>
                 </div>
 
@@ -892,7 +892,7 @@ const UrduFoodBusinessMockup = () => {
               <div className="divide-y divide-[#252B36]/60">
                 <div className="px-2.5 py-1.5 flex items-center justify-between">
                   <div>
-                    <span className="font-semibold text-neutral-200 block">مدینہ سپر اسٹور - شاہپور</span>
+                    <span className="font-semibold text-neutral-200 block">مدینہ سپر اسٹور (شاہپور)</span>
                     <span className="text-[8px] text-neutral-400">فون: 0302-XXXXXXX • درخواست: ڈیپ فریزر</span>
                   </div>
                   <span className="px-1.5 py-0.2 rounded text-[8px] font-mono bg-emerald-950/60 text-emerald-300 border border-emerald-500/30">
@@ -901,7 +901,7 @@ const UrduFoodBusinessMockup = () => {
                 </div>
                 <div className="px-2.5 py-1.5 flex items-center justify-between">
                   <div>
-                    <span className="font-semibold text-neutral-200 block">بسم اللہ جنرل اسٹور - سرگودھا</span>
+                    <span className="font-semibold text-neutral-200 block">بسم اللہ جنرل اسٹور (سرگودھا)</span>
                     <span className="text-[8px] text-neutral-400">فون: 0311-XXXXXXX • درخواست: 200kg گھی</span>
                   </div>
                   <span className="px-1.5 py-0.2 rounded text-[8px] font-mono bg-amber-950/60 text-amber-300 border border-amber-500/30">
@@ -1487,7 +1487,7 @@ const PrimeLinksMockup = () => {
                   Accelerating Business Growth & Connectivity
                 </h4>
                 <p className="text-[9px] sm:text-[10px] text-neutral-300 mt-1 line-clamp-2 leading-relaxed">
-                  Dedicated digital presence establishing market authority, clear service communication, and seamless client discovery.
+                  Dedicated digital platform presenting core services, client inquiries, and business operations clearly.
                 </p>
               </div>
               <button
@@ -1595,7 +1595,7 @@ const PrimeLinksMockup = () => {
                 <div className="flex items-center gap-1.5">
                   <Briefcase className="w-3.5 h-3.5 text-cyan-400" />
                   <span className="text-[10px] sm:text-[11px] font-bold text-neutral-200">
-                    Direct Client Inquiry - PrimeLinks
+                    Direct Client Inquiry: PrimeLinks
                   </span>
                 </div>
                 <span className="text-[8.5px] font-mono text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/30">
@@ -1655,24 +1655,18 @@ const PrimeLinksMockup = () => {
 };
 
 export const ProjectMockup = ({ type }) => {
+  let content = null;
+
   if (type === 'primelinks' || type === 'business-web') {
-    return <PrimeLinksMockup />;
-  }
-
-  if (type === 'pos' || type === 'retailspoint') {
-    return <RestaurantPosMockup />;
-  }
-
-  if (type === 'social') {
-    return <SocialFeedMockup />;
-  }
-
-  if (type === 'food-business' || type === 'support') {
-    return <UrduFoodBusinessMockup />;
-  }
-
-  if (type === 'kanban') {
-    return (
+    content = <PrimeLinksMockup />;
+  } else if (type === 'pos' || type === 'retailspoint') {
+    content = <RestaurantPosMockup />;
+  } else if (type === 'social') {
+    content = <SocialFeedMockup />;
+  } else if (type === 'food-business') {
+    content = <UrduFoodBusinessMockup />;
+  } else if (type === 'kanban') {
+    content = (
       <div className="w-full h-full bg-[#090C10] p-3 sm:p-4 text-xs font-sans select-none overflow-hidden flex flex-col">
         {/* Top Mini Bar */}
         <div className="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-[#252B36]/60 mb-2.5 sm:mb-3">
@@ -1690,7 +1684,7 @@ export const ProjectMockup = ({ type }) => {
           </div>
         </div>
 
-        {/* Columns Grid - Responsive Horizontal Scroll on Mobile, 3-Columns on Desktop */}
+        {/* Columns Grid: Responsive Horizontal Scroll on Mobile, 3-Columns on Desktop */}
         <div className="flex overflow-x-auto snap-x no-scrollbar gap-2 sm:grid sm:grid-cols-3 sm:gap-2.5 flex-1 pb-1">
           {/* Column 1: Applied */}
           <div className="min-w-[145px] sm:min-w-0 flex-1 snap-start bg-[#0E131A] rounded-lg p-2 sm:p-2.5 border border-[#252B36]/50 flex flex-col gap-1.5 sm:gap-2">
@@ -1757,166 +1751,13 @@ export const ProjectMockup = ({ type }) => {
         </div>
       </div>
     );
+  } else {
+    content = <RestaurantPosMockup />;
   }
 
-  if (type === 'support') {
-    return (
-      <div className="w-full h-full bg-[#090C10] p-3 sm:p-4 text-xs font-sans select-none overflow-hidden flex flex-col">
-        {/* Top Stats */}
-        <div className="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-[#252B36]/60 mb-2.5 sm:mb-3">
-          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-            <span className="font-semibold text-neutral-200 text-xs truncate">Omnichannel Copilot</span>
-            <span className="px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-mono bg-purple-950/60 text-purple-300 border border-purple-500/20 shrink-0">
-              GPT-4o Stream
-            </span>
-          </div>
-          <span className="text-[9px] sm:text-[10px] font-mono text-emerald-400 flex items-center gap-1 shrink-0 ml-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span> SLA: 99.4%
-          </span>
-        </div>
-
-        {/* Split View */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 flex-1 overflow-hidden">
-          {/* Left Ticket List (Hidden on mobile to prioritize AI copilot, visible on sm:) */}
-          <div className="hidden sm:flex sm:col-span-5 bg-[#0E131A] rounded-lg p-2 border border-[#252B36]/50 flex-col gap-1.5">
-            <div className="bg-[#151B24] p-2 rounded border-l-2 border-l-purple-500 border-t border-r border-b border-[#252B36]">
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="font-mono text-neutral-400">#TK-8941</span>
-                <span className="px-1 py-0.2 rounded text-[8px] font-mono bg-rose-950/60 text-rose-300">URGENT</span>
-              </div>
-              <p className="font-semibold text-[11px] text-neutral-200 mt-1 truncate">Webhook timeout error</p>
-              <span className="text-[9px] text-neutral-400">Sent 4m ago</span>
-            </div>
-
-            <div className="bg-[#111620] p-2 rounded border border-[#252B36]/60 opacity-80">
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="font-mono text-neutral-400">#TK-8940</span>
-                <span className="px-1 py-0.2 rounded text-[8px] font-mono bg-blue-950/60 text-blue-300">MEDIUM</span>
-              </div>
-              <p className="font-semibold text-[11px] text-neutral-300 mt-1 truncate">Subscription upgrade inquiry</p>
-            </div>
-          </div>
-
-          {/* Right Ticket Detail & AI Suggestion */}
-          <div className="col-span-1 sm:col-span-7 bg-[#0E131A] rounded-lg p-2.5 sm:p-3 border border-[#252B36]/50 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-mono text-neutral-400 pb-1.5 border-b border-[#252B36]/40">
-                <span className="truncate mr-2">Customer: engineering@acme.com</span>
-                <span className="text-emerald-400 shrink-0">Verified</span>
-              </div>
-              <p className="text-[10px] sm:text-[11px] text-neutral-300 mt-1.5 sm:mt-2 leading-relaxed line-clamp-2">
-                "Our production payload delivery is failing with HTTP 504. Is the API gateway rate limiting our IP range?"
-              </p>
-            </div>
-
-            {/* AI Generated Draft Box */}
-            <div className="bg-[#131923] p-2 sm:p-2.5 rounded-lg border border-purple-500/40 mt-1.5">
-              <div className="flex items-center justify-between text-[9px] sm:text-[10px] text-purple-300 mb-1">
-                <span className="flex items-center gap-1 font-mono">
-                  <Sparkles className="w-3 h-3 text-purple-400 shrink-0" /> AI Suggested Resolution
-                </span>
-                <span className="text-[8px] sm:text-[9px] font-mono text-neutral-400">96% match</span>
-              </div>
-              <p className="text-[9px] sm:text-[10px] text-neutral-300 leading-snug line-clamp-2">
-                "We reviewed egress cluster logs; timeout stemmed from unacknowledged payloads. Review exponential backoff docs."
-              </p>
-              <div className="mt-1.5 flex items-center justify-end">
-                <span className="px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-medium bg-purple-600 text-white hover:bg-purple-500 transition-colors cursor-pointer">
-                  Approve & Dispatch
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (type === 'inventory') {
-    return (
-      <div className="w-full h-full bg-[#090C10] p-3 sm:p-4 text-xs font-sans select-none overflow-hidden flex flex-col">
-        {/* Header */}
-        <div className="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-[#252B36]/60 mb-2.5 sm:mb-3">
-          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-            <Layers className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            <span className="font-semibold text-neutral-200 text-xs truncate">Multi-Warehouse Inventory</span>
-          </div>
-          <span className="text-[9px] sm:text-[10px] font-mono text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0 ml-2">
-            $428,950
-          </span>
-        </div>
-
-        {/* Ledger Table */}
-        <div className="bg-[#0E131A] rounded-lg border border-[#252B36]/60 p-2 sm:p-2.5 flex-1 flex flex-col justify-between overflow-hidden">
-          <table className="w-full text-left text-[10px] sm:text-[11px]">
-            <thead>
-              <tr className="text-neutral-500 font-mono text-[8px] sm:text-[9px] border-b border-[#252B36]/60 pb-1">
-                <th className="pb-1.5">SKU</th>
-                <th className="pb-1.5">PRODUCT</th>
-                <th className="pb-1.5 hidden sm:table-cell">LOCATION</th>
-                <th className="pb-1.5">AVAILABLE</th>
-                <th className="pb-1.5 text-right">STATUS</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#252B36]/40 text-neutral-300 text-[9px] sm:text-[10px]">
-              <tr>
-                <td className="py-1.5 sm:py-2 font-mono text-neutral-400">SKU-9901</td>
-                <td className="py-1.5 sm:py-2 font-medium text-neutral-200 truncate max-w-[100px] sm:max-w-none">Precision Router</td>
-                <td className="py-1.5 sm:py-2 text-neutral-400 hidden sm:table-cell">Dallas-A</td>
-                <td className="py-1.5 sm:py-2 font-mono text-emerald-400">142 units</td>
-                <td className="py-1.5 sm:py-2 text-right">
-                  <span className="px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-mono bg-emerald-950/60 text-emerald-300">IN STOCK</span>
-                </td>
-              </tr>
-              <tr>
-                <td className="py-1.5 sm:py-2 font-mono text-neutral-400">SKU-9902</td>
-                <td className="py-1.5 sm:py-2 font-medium text-neutral-200 truncate max-w-[100px] sm:max-w-none">Fiber Transceiver</td>
-                <td className="py-1.5 sm:py-2 text-neutral-400 hidden sm:table-cell">London-B</td>
-                <td className="py-1.5 sm:py-2 font-mono text-amber-400">18 units</td>
-                <td className="py-1.5 sm:py-2 text-right">
-                  <span className="px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-mono bg-amber-950/60 text-amber-300">LOW</span>
-                </td>
-              </tr>
-              <tr>
-                <td className="py-1.5 sm:py-2 font-mono text-neutral-400">SKU-9903</td>
-                <td className="py-1.5 sm:py-2 font-medium text-neutral-200 truncate max-w-[100px] sm:max-w-none">PoE Switch 48P</td>
-                <td className="py-1.5 sm:py-2 text-neutral-400 hidden sm:table-cell">Chicago-C</td>
-                <td className="py-1.5 sm:py-2 font-mono text-rose-400">0 units</td>
-                <td className="py-1.5 sm:py-2 text-right">
-                  <span className="px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-mono bg-rose-950/60 text-rose-300">BACKORDER</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          {/* Bottom Alert Bar */}
-          <div className="bg-[#141B24] p-1.5 sm:p-2 rounded flex items-center justify-between border border-[#252B36] text-[9px] sm:text-[10px] mt-1">
-            <span className="text-neutral-400 font-mono flex items-center gap-1.5 min-w-0">
-              <AlertCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0" />
-              <span className="truncate">Auto PO #4812 queued</span>
-            </span>
-            <span className="text-indigo-400 font-mono text-[8px] sm:text-[9px] shrink-0 ml-2">ACID Safe</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Default System Blueprint Mockup
   return (
-    <div className="w-full h-full bg-[#090C10] p-4 sm:p-6 text-xs font-mono select-none flex flex-col items-center justify-center border-2 border-dashed border-[#252B36] rounded-lg">
-      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-950/50 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-2 sm:mb-3">
-        <Zap className="w-5 h-5 sm:w-6 sm:h-6" />
-      </div>
-      <h4 className="font-sans font-bold text-xs sm:text-sm text-neutral-200 mb-1">Architecture Blueprint Preview</h4>
-      <p className="text-[10px] sm:text-[11px] text-neutral-400 text-center max-w-xs mb-2 sm:mb-3 font-sans">
-        Production full-stack architecture with modular components, reactive state, and cloud integration.
-      </p>
-      <div className="flex items-center gap-2 text-[9px] sm:text-[10px] text-indigo-400">
-        <Database className="w-3 h-3 shrink-0" />
-        <span>Full-Stack Architecture Configured</span>
-      </div>
+    <div className="w-full h-full mockup-theme">
+      {content}
     </div>
   );
 };
