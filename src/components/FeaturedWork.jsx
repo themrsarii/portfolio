@@ -17,20 +17,20 @@ export const FeaturedWork = ({ onSelectProject }) => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#E8E8E8] dark:border-[#222429] gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400"></span>
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-[#A1A1AA]">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-700 dark:bg-indigo-400"></span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[#4B5563] dark:text-[#A1A1AA]">
                 Selected Work
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#171717] dark:text-[#EDEDED] tracking-tight">
               Featured Projects
             </h2>
-            <p className="text-base text-[#666666] dark:text-[#A1A1AA] mt-2 max-w-2xl">
+            <p className="text-base text-[#4B5563] dark:text-[#A1A1AA] mt-2 max-w-2xl">
               A collection of real-world web apps, business systems, and tools I have built.
             </p>
           </div>
 
-          <div className="text-xs font-mono text-[#666666] dark:text-[#A1A1AA] bg-[#F7F7F5] dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] px-3 py-1.5 rounded-md self-start md:self-auto">
+          <div className="text-xs font-mono text-[#4B5563] dark:text-[#A1A1AA] bg-[#F7F7F5] dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] px-3 py-1.5 rounded-md self-start md:self-auto">
             Production & Client Work
           </div>
         </div>
@@ -50,7 +50,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                   Offline-First Architecture
                 </span>
               </div>
-              <span className="text-xs font-mono text-[#595959] dark:text-[#A1A1AA]">
+              <span className="text-xs font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                 Muhammad Sarfaraz & Hasan Tariq (Startup Collaboration)
               </span>
             </div>
@@ -67,7 +67,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
               <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-white dark:bg-[#0F1014]">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-mono text-indigo-600 dark:text-indigo-400 font-semibold uppercase tracking-wider">
+                    <span className="text-xs font-mono text-indigo-700 dark:text-indigo-400 font-semibold uppercase tracking-wider">
                       {flagshipProject.category}
                     </span>
                   </div>
@@ -76,7 +76,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                     {flagshipProject.title}
                   </h3>
 
-                  <p className="text-sm text-[#666666] dark:text-[#A1A1AA] mt-3 leading-relaxed">
+                  <p className="text-sm text-[#4B5563] dark:text-[#A1A1AA] mt-3 leading-relaxed">
                     {flagshipProject.description}
                   </p>
 
@@ -87,8 +87,8 @@ export const FeaturedWork = ({ onSelectProject }) => {
                     </span>
                     <ul className="space-y-2">
                       {flagshipProject.engineeringHighlights.map((highlight, idx) => (
-                        <li key={idx} className="text-xs text-[#666666] dark:text-[#A1A1AA] flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 mt-1.5 shrink-0" />
+                        <li key={idx} className="text-xs text-[#4B5563] dark:text-[#A1A1AA] flex items-start gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-700 dark:bg-indigo-400 mt-1.5 shrink-0" />
                           <span className="leading-relaxed">{highlight}</span>
                         </li>
                       ))}
@@ -127,7 +127,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                       className="inline-flex items-center gap-1.5 px-3.5 py-2.5 text-xs font-medium text-[#171717] dark:text-[#EDEDED] bg-[#F7F7F5] dark:bg-[#141418] hover:bg-[#EAEAEA] dark:hover:bg-[#1A1B22] border border-[#E8E8E8] dark:border-[#222429] rounded-md transition-colors"
                     >
                       <span>Live Demo</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-[#666666] dark:text-[#A1A1AA]" />
+                      <ExternalLink className="w-3.5 h-3.5 text-[#4B5563] dark:text-[#A1A1AA]" />
                     </a>
                   </div>
                 </div>
@@ -153,12 +153,12 @@ export const FeaturedWork = ({ onSelectProject }) => {
                       {project.category}
                     </span>
                     {project.statusBadge && (
-                      <span className="hidden sm:inline-block text-[11px] font-mono text-[#666666] dark:text-[#A1A1AA]">
+                      <span className="hidden sm:inline-block text-[11px] font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                         • {project.statusBadge}
                       </span>
                     )}
                   </div>
-                  <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
+                  <span className="text-[11px] font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                     {project.badge}
                   </span>
                 </div>
@@ -173,7 +173,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                   <h3 className="text-xl sm:text-2xl font-bold text-[#171717] dark:text-[#EDEDED] tracking-tight">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-[#666666] dark:text-[#A1A1AA] leading-relaxed">
+                  <p className="text-sm text-[#4B5563] dark:text-[#A1A1AA] leading-relaxed">
                     {project.description}
                   </p>
 
@@ -182,8 +182,8 @@ export const FeaturedWork = ({ onSelectProject }) => {
                     <div className="pt-3">
                       <ul className="space-y-1.5">
                         {project.engineeringHighlights.slice(0, 2).map((h, hIdx) => (
-                          <li key={hIdx} className="text-xs text-[#666666] dark:text-[#A1A1AA] flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 mt-1.5 shrink-0" />
+                          <li key={hIdx} className="text-xs text-[#4B5563] dark:text-[#A1A1AA] flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-700 dark:bg-indigo-400 mt-1.5 shrink-0" />
                             <span className="leading-relaxed">{h}</span>
                           </li>
                         ))}
@@ -199,13 +199,13 @@ export const FeaturedWork = ({ onSelectProject }) => {
                   {project.technologies.slice(0, 5).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#F7F7F5] dark:bg-[#16171D] border border-[#E8E8E8] dark:border-[#262830] text-[#666666] dark:text-[#A1A1AA]"
+                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#F7F7F5] dark:bg-[#16171D] border border-[#E8E8E8] dark:border-[#262830] text-[#4B5563] dark:text-[#A1A1AA]"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 5 && (
-                    <span className="px-2 py-0.5 rounded text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
+                    <span className="px-2 py-0.5 rounded text-[11px] font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                       +{project.technologies.length - 5} more
                     </span>
                   )}
@@ -227,7 +227,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white bg-[#F7F7F5] dark:bg-[#141418] border border-[#E8E8E8] dark:border-[#222429] rounded-md transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-[#4B5563] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white bg-[#F7F7F5] dark:bg-[#141418] border border-[#E8E8E8] dark:border-[#222429] rounded-md transition-colors"
                         title="GitHub Repository"
                         aria-label={`View ${project.title} source code on GitHub`}
                       >

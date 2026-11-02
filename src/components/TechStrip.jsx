@@ -31,8 +31,8 @@ export const TechStrip = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400"></span>
-          <span className="text-xs font-mono font-medium tracking-wider text-[#666666] dark:text-[#A1A1AA] uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-700 dark:bg-indigo-400"></span>
+          <span className="text-xs font-mono font-medium tracking-wider text-[#4B5563] dark:text-[#A1A1AA] uppercase">
             Core Technologies & Environments
           </span>
         </div>
@@ -55,7 +55,7 @@ export const TechStrip = () => {
                   <span className="text-xs font-medium text-[#171717] dark:text-[#EDEDED] block whitespace-nowrap">
                     {tech.name}
                   </span>
-                  <span className="text-[10px] font-mono text-[#595959] dark:text-[#A1A1AA] block whitespace-nowrap">
+                  <span className="text-[10px] font-mono text-[#4B5563] dark:text-[#A1A1AA] block whitespace-nowrap">
                     {tech.role}
                   </span>
                 </div>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, Download, ExternalLink, FileText, Check, Copy, 
   Eye, ListFilter
@@ -35,25 +34,17 @@ export const ResumeModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
-        {/* Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm"
-        />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+      />
 
-        {/* Modal Window */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.96, y: 15 }}
-          transition={{ duration: 0.25 }}
-          className="relative w-full max-w-5xl h-[96vh] sm:h-[90vh] bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden"
-        >
+      {/* Modal Window */}
+      <div
+        className="relative w-full max-w-5xl h-[96vh] sm:h-[90vh] bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+      >
           {/* Header Bar */}
           <div className="p-3 sm:p-4 border-b border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#14151B] flex flex-wrap items-center justify-between gap-3 shrink-0">
             {/* Left: Identity & Tabs */}
@@ -325,10 +316,9 @@ export const ResumeModal = ({ isOpen, onClose }) => {
                 <span>Download CV</span>
               </a>
             </div>
-          </div>
-        </motion.div>
+        </div>
       </div>
-    </AnimatePresence>
+    </div>
   );
 };
 

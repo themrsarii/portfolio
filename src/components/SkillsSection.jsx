@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   Code2, Server, Database, Wrench, Layers, Compass
 } from 'lucide-react';
@@ -47,31 +46,27 @@ export const SkillsSection = () => {
             Core Stack (MERN)
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {skillsData.coreStack.map((item, idx) => (
-              <motion.div
+            {skillsData.coreStack.map((item) => (
+              <div
                 key={item.name}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.08 }}
                 className="p-5 rounded-xl bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] relative overflow-hidden flex flex-col justify-between shadow-sm"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="w-8 h-8 rounded-md bg-[#F7F7F5] dark:bg-[#181920] border border-[#E8E8E8] dark:border-[#282B34] flex items-center justify-center font-mono font-bold text-indigo-600 dark:text-indigo-400 text-sm">
+                    <span className="w-8 h-8 rounded-md bg-[#F7F7F5] dark:bg-[#181920] border border-[#E8E8E8] dark:border-[#282B34] flex items-center justify-center font-mono font-bold text-indigo-700 dark:text-indigo-400 text-sm">
                       {item.letter}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#F2F2F0] dark:bg-[#181920] text-[#666666] dark:text-[#A1A1AA]">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#F2F2F0] dark:bg-[#181920] text-[#4B5563] dark:text-[#A1A1AA]">
                       {item.level}
                     </span>
                   </div>
                   <h3 className="font-bold text-base text-[#171717] dark:text-[#EDEDED]">{item.name}</h3>
-                  <span className="text-xs font-mono text-indigo-600 dark:text-indigo-400 block mb-2">{item.role}</span>
-                  <p className="text-xs text-[#666666] dark:text-[#A1A1AA] leading-relaxed">
+                  <span className="text-xs font-mono text-indigo-700 dark:text-indigo-400 block mb-2">{item.role}</span>
+                  <p className="text-xs text-[#4B5563] dark:text-[#A1A1AA] leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

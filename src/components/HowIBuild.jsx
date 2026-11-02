@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   Search, Compass, Code, CheckCircle, RefreshCw, 
   Layers, Database, Shield, Zap, Terminal, Globe, Cpu, Layout, Workflow
@@ -80,20 +79,16 @@ export const HowIBuild = () => {
 
         {/* 5 Stages Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
-          {stages.map((stage, idx) => {
+          {stages.map((stage) => {
             const Icon = stage.icon;
             return (
-              <motion.div
+              <div
                 key={stage.number}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.08 }}
                 className="p-5 rounded-xl bg-[#F7F7F5] dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-bold text-[#595959] dark:text-[#A1A1AA]">
+                    <span className="font-mono text-xs font-bold text-[#4B5563] dark:text-[#A1A1AA]">
                       Step {stage.number}
                     </span>
                     <div className="w-7 h-7 rounded-md bg-white dark:bg-[#181920] border border-[#E8E8E8] dark:border-[#282B34] flex items-center justify-center text-[#171717] dark:text-[#EDEDED]">
@@ -103,11 +98,11 @@ export const HowIBuild = () => {
                   <h3 className="text-base font-bold text-[#171717] dark:text-[#EDEDED] mb-2">
                     {stage.title}
                   </h3>
-                  <p className="text-xs text-[#666666] dark:text-[#A1A1AA] leading-relaxed">
+                  <p className="text-xs text-[#4B5563] dark:text-[#A1A1AA] leading-relaxed">
                     {stage.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

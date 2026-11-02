@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, ExternalLink, Database, 
   CheckCircle2, AlertTriangle, ArrowUpRight
@@ -33,25 +32,17 @@ export const CaseStudyModal = ({ project, onClose }) => {
   ];
 
   return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        {/* Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm transition-opacity"
-        />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm transition-opacity animate-in fade-in duration-200"
+      />
 
-        {/* Modal Window */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.96, y: 15 }}
-          transition={{ duration: 0.25 }}
-          className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden"
-        >
+      {/* Modal Window */}
+      <div
+        className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+      >
           {/* Top Bar Header */}
           <div className="flex items-center justify-between p-5 sm:p-6 border-b border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#14151B]">
             <div className="flex flex-col">
@@ -335,10 +326,9 @@ export const CaseStudyModal = ({ project, onClose }) => {
             >
               Close
             </button>
-          </div>
-        </motion.div>
+        </div>
       </div>
-    </AnimatePresence>
+    </div>
   );
 };
 

@@ -41,16 +41,13 @@ export default defineConfig({
     modulePreload: {
       resolveDependencies(_filename, deps) {
         // Exclude deferred chunks from initial HTML modulepreload tags
-        return deps.filter(dep => !dep.includes('vendor-framer') && !dep.includes('vendor-other'));
+        return deps.filter(dep => !dep.includes('vendor-other'));
       }
     },
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('framer-motion')) {
-              return 'vendor-framer';
-            }
             if (id.includes('lucide-react')) {
               return 'vendor-icons';
             }

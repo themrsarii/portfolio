@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
 import { experienceData } from '../data/experienceData';
 
@@ -34,12 +33,8 @@ export const ExperienceTimeline = () => {
         <div className="relative border-l border-[#E8E8E8] dark:border-[#222429] ml-4 sm:ml-6 space-y-10">
           {experienceData.map((item, idx) => {
             return (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.1 }}
                 className="relative pl-6 sm:pl-8 group"
               >
                 {/* Minimalist node */}
@@ -93,7 +88,7 @@ export const ExperienceTimeline = () => {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

@@ -79,7 +79,7 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
               <span className="text-sm font-semibold tracking-tight text-[#171717] dark:text-[#EDEDED] transition-colors">
                 Muhammad Sarfaraz
               </span>
-              <span className="font-mono text-[10px] tracking-wider text-[#666666] dark:text-[#595959] dark:text-[#A1A1AA] font-medium flex items-center gap-1.5">
+              <span className="font-mono text-[10px] tracking-wider text-[#4B5563] dark:text-[#A1A1AA] font-medium flex items-center gap-1.5">
                 FULL STACK ENGINEER
               </span>
             </div>
@@ -95,7 +95,7 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
                   href={link.href}
                   className={`px-3 py-1 text-xs font-medium rounded-full transition-all relative ${isActive
                     ? 'text-[#171717] dark:text-white'
-                    : 'text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white'
+                    : 'text-[#4B5563] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white'
                     }`}
                 >
                   {isActive && (
@@ -157,7 +157,7 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded-md text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white bg-white dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429]"
+              className="p-1.5 rounded-md text-[#4B5563] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white bg-white dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429]"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -177,7 +177,7 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-2 text-sm font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white hover:bg-[#F7F7F5] dark:hover:bg-[#14151A] rounded-md transition-colors flex items-center justify-between"
+                className="px-3.5 py-2 text-sm font-medium text-[#4B5563] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white hover:bg-[#F7F7F5] dark:hover:bg-[#14151A] rounded-md transition-colors flex items-center justify-between"
               >
                 <span>{link.name}</span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
