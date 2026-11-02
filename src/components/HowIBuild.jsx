@@ -93,7 +93,7 @@ export const HowIBuild = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-bold text-[#929292]">
+                    <span className="font-mono text-xs font-bold text-[#595959] dark:text-[#A1A1AA]">
                       Step {stage.number}
                     </span>
                     <div className="w-7 h-7 rounded-md bg-white dark:bg-[#181920] border border-[#E8E8E8] dark:border-[#282B34] flex items-center justify-center text-[#171717] dark:text-[#EDEDED]">

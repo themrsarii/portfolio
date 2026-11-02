@@ -84,12 +84,21 @@
   <!-- Preload Hero LCP Asset -->
   <link rel="preload" as="image" href="/assets/hero-portrait-natural.webp" type="image/webp" fetchpriority="high" />
 
-  <!-- Google Fonts: Geist, Inter & JetBrains Mono -->
+  <!-- Preconnect External CDNs and APIs -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
-    rel="stylesheet" />
+  <link rel="preconnect" href="https://api.github.com" crossorigin />
+
+  <!-- Agentic Resource Discovery & LLM Directives -->
+  <link rel="ard" type="application/json" href="/.well-known/ard.json" />
+  <link rel="author" type="text/plain" href="/llms.txt" />
+
+  <!-- Non-Render-Blocking Web Fonts: Geist, Inter & JetBrains Mono -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  </noscript>
 
   <!-- Structured Data: JSON-LD Graph (Google Rich Results Compliant & AI Agent Search) -->
   <script type="application/ld+json">

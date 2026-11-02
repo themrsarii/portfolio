@@ -55,7 +55,7 @@ export const ExperienceTimeline = () => {
                         <span className="font-semibold text-[#171717] dark:text-[#EDEDED]">{item.company}</span>
                         <span>•</span>
                         <span className="flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-[#929292]" /> {item.location}
+                          <MapPin className="w-3 h-3 text-[#595959] dark:text-[#A1A1AA]" /> {item.location}
                         </span>
                       </div>
                     </div>

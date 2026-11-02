@@ -1,0 +1,32 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schemas/v1/ard.json",
+  "version": "1.0",
+  "resource": {
+    "name": "Muhammad Sarfaraz Developer Portfolio",
+    "description": "Professional portfolio and engineering showcase for Muhammad Sarfaraz (Mr SARii), Full Stack MERN Developer.",
+    "url": "https://portfolio.mrsarii.com",
+    "author": {
+      "name": "Muhammad Sarfaraz",
+      "email": "the.mrsarii@gmail.com",
+      "url": "https://portfolio.mrsarii.com"
+    }
+  },
+  "capabilities": [
+    {
+      "type": "documentation",
+      "name": "LLM Developer Documentation",
+      "url": "https://portfolio.mrsarii.com/llms.txt"
+    },
+    {
+      "type": "portfolio",
+      "name": "Selected Software Projects",
+      "url": "https://portfolio.mrsarii.com/#work"
+    },
+    {
+      "type": "contact",
+      "name": "Direct Communication",
+      "url": "https://portfolio.mrsarii.com/#contact"
+    }
+  ]
+}
+

@@ -148,7 +148,7 @@ export const GithubSection = () => {
                         {repo.name}
                       </span>
                     </div>
-                    <ExternalLink className="w-3.5 h-3.5 text-[#929292] group-hover:text-[#171717] dark:group-hover:text-white transition-colors" />
+                    <ExternalLink className="w-3.5 h-3.5 text-[#595959] dark:text-[#A1A1AA] group-hover:text-[#171717] dark:group-hover:text-white transition-colors" />
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#666666] dark:text-[#A1A1AA] leading-relaxed mt-2 line-clamp-2">
@@ -162,7 +162,7 @@ export const GithubSection = () => {
                     <span>{repo.language || "JavaScript"}</span>
                   </div>
 
-                  <div className="flex items-center gap-4 text-[#929292]">
+                  <div className="flex items-center gap-4 text-[#595959] dark:text-[#A1A1AA]">
                     <span className="flex items-center gap-1">
                       <Star className="w-3 h-3 text-amber-500" /> {repo.stargazers_count || 0}
                     </span>

@@ -64,7 +64,7 @@ export const Hero = ({ onOpenResume }) => {
 
                 <span>Available for full-time roles and freelance work</span>
               </div>
-              <span className="text-xs font-mono text-[#929292] hidden sm:inline">
+              <span className="text-xs font-mono text-[#595959] dark:text-[#A1A1AA] hidden sm:inline">
                 Pakistan, Remote
               </span>
             </motion.div>
@@ -159,7 +159,7 @@ export const Hero = ({ onOpenResume }) => {
               className="mt-8 pt-6 border-t border-[#E8E8E8] dark:border-[#222429] grid grid-cols-2 gap-6 max-w-lg"
             >
               <div>
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#929292]">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#595959] dark:text-[#A1A1AA]">
                   Primary Stack
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-[#171717] dark:text-[#EDEDED] mt-0.5 block">
@@ -167,7 +167,7 @@ export const Hero = ({ onOpenResume }) => {
                 </span>
               </div>
               <div>
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#929292]">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#595959] dark:text-[#A1A1AA]">
                   Engineering Scope
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-[#171717] dark:text-[#EDEDED] mt-0.5 block">
@@ -196,7 +196,7 @@ export const Hero = ({ onOpenResume }) => {
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                   </div>
-                  <span className="text-[10px] font-mono text-[#929292]">
+                  <span className="text-[10px] font-mono text-[#595959] dark:text-[#A1A1AA]">
                     sarfaraz.webp
                   </span>
                 </div>
@@ -220,11 +220,11 @@ export const Hero = ({ onOpenResume }) => {
                     <span className="text-xs font-semibold text-[#171717] dark:text-[#EDEDED] block">
                       Muhammad Sarfaraz
                     </span>
-                    <span className="text-[11px] font-mono text-[#666666] dark:text-[#929292]">
+                    <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
                       Full Stack Developer
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-[#666666] dark:text-[#A1A1AA]">
+                  <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
                     Pakistan
                   </span>
                 </div>

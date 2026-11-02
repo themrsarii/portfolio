@@ -52,8 +52,8 @@ export const AboutSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               {principles.map((p, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] shadow-sm">
-                  <h4 className="text-xs font-bold text-[#171717] dark:text-[#EDEDED] mb-1.5">{p.title}</h4>
-                  <p className="text-[11px] text-[#666666] dark:text-[#A1A1AA] leading-relaxed">{p.desc}</p>
+                  <h3 className="text-xs font-bold text-[#171717] dark:text-[#EDEDED] mb-1.5">{p.title}</h3>
+                  <p className="text-[11px] text-[#595959] dark:text-[#A1A1AA] leading-relaxed">{p.desc}</p>
                 </div>
               ))}
             </div>
@@ -68,23 +68,23 @@ export const AboutSection = () => {
 
               <div className="space-y-3.5 font-mono text-xs">
                 <div className="flex items-center justify-between pb-3 border-b border-[#E8E8E8] dark:border-[#222429]">
-                  <span className="text-[#929292]">Primary Stack</span>
+                  <span className="text-[#595959] dark:text-[#A1A1AA]">Primary Stack</span>
                   <span className="text-[#171717] dark:text-[#EDEDED] font-semibold">MERN (Mongo, Express, React, Node)</span>
                 </div>
                 <div className="flex items-center justify-between pb-3 border-b border-[#E8E8E8] dark:border-[#222429]">
-                  <span className="text-[#929292]">Frontend Focus</span>
+                  <span className="text-[#595959] dark:text-[#A1A1AA]">Frontend Focus</span>
                   <span className="text-[#171717] dark:text-[#EDEDED] font-medium">React.js, SPA, Tailwind CSS</span>
                 </div>
                 <div className="flex items-center justify-between pb-3 border-b border-[#E8E8E8] dark:border-[#222429]">
-                  <span className="text-[#929292]">Backend Focus</span>
+                  <span className="text-[#595959] dark:text-[#A1A1AA]">Backend Focus</span>
                   <span className="text-[#171717] dark:text-[#EDEDED] font-medium">Node.js, Express, REST APIs</span>
                 </div>
                 <div className="flex items-center justify-between pb-3 border-b border-[#E8E8E8] dark:border-[#222429]">
-                  <span className="text-[#929292]">Data Persistence</span>
+                  <span className="text-[#595959] dark:text-[#A1A1AA]">Data Persistence</span>
                   <span className="text-[#171717] dark:text-[#EDEDED] font-medium">MongoDB, SQLite & MySQL</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[#929292]">Availability</span>
+                  <span className="text-[#595959] dark:text-[#A1A1AA]">Availability</span>
                   <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Open to Opportunities
                   </span>

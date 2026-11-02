@@ -59,7 +59,7 @@ export const CaseStudyModal = ({ project, onClose }) => {
                 <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-white dark:bg-[#1E2028] text-[#171717] dark:text-[#EDEDED] border border-[#E8E8E8] dark:border-[#2A2E38]">
                   {project.category}
                 </span>
-                <span className="text-xs font-mono text-[#929292]">{project.badge}</span>
+                <span className="text-xs font-mono text-[#595959] dark:text-[#A1A1AA]">{project.badge}</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#171717] dark:text-[#EDEDED] mt-1">
                 {project.title}
@@ -129,7 +129,7 @@ export const CaseStudyModal = ({ project, onClose }) => {
                 {cs.collaborators && (
                   <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830] text-xs font-mono">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#929292]">
+                      <span className="text-[#595959] dark:text-[#A1A1AA]">
                         {cs.client ? 'Project Stakeholders:' : 'Startup Collaboration:'}
                       </span>
                       <span className="text-[#171717] dark:text-[#EDEDED] font-semibold">{cs.collaborators}</span>
@@ -246,7 +246,7 @@ export const CaseStudyModal = ({ project, onClose }) => {
                   </h3>
                   <div className="border border-[#E8E8E8] dark:border-[#222429] rounded-xl overflow-hidden bg-white dark:bg-[#111216]">
                     <table className="w-full text-left text-xs font-mono">
-                      <thead className="bg-[#F7F7F5] dark:bg-[#16171E] border-b border-[#E8E8E8] dark:border-[#222429] text-[#929292] text-[11px]">
+                      <thead className="bg-[#F7F7F5] dark:bg-[#16171E] border-b border-[#E8E8E8] dark:border-[#222429] text-[#595959] dark:text-[#A1A1AA] text-[11px]">
                         <tr>
                           <th className="p-3">Method</th>
                           <th className="p-3">Endpoint</th>
@@ -326,7 +326,7 @@ export const CaseStudyModal = ({ project, onClose }) => {
 
           {/* Footer Bar */}
           <div className="p-4 sm:p-5 border-t border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#14151B] flex items-center justify-between">
-            <span className="text-xs font-mono text-[#929292]">
+            <span className="text-xs font-mono text-[#595959] dark:text-[#A1A1AA]">
               Muhammad Sarfaraz • Full Stack Architecture
             </span>
             <button

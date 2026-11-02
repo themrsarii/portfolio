@@ -58,7 +58,7 @@ export const ContactSection = ({ onOpenResume }) => {
             </p>
           </div>
 
-          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-white dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] px-3 py-1.5 rounded-md flex items-center gap-2 self-start md:self-auto">
+          <div className="text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-white dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] px-3 py-1.5 rounded-md flex items-center gap-2 self-start md:self-auto">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>Available for Work</span>
           </div>
@@ -84,7 +84,7 @@ export const ContactSection = ({ onOpenResume }) => {
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="overflow-hidden">
-                    <span className="block text-[11px] font-mono text-[#929292]">Primary Email</span>
+                    <span className="block text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">Primary Email</span>
                     <span className="font-mono text-xs sm:text-sm font-semibold text-[#171717] dark:text-[#EDEDED] truncate block">
                       {emailAddress}
                     </span>
@@ -117,10 +117,10 @@ export const ContactSection = ({ onOpenResume }) => {
                     <LinkedinIcon className="w-4 h-4 text-[#0A66C2]" />
                     <div>
                       <span className="text-xs font-bold text-[#171717] dark:text-[#EDEDED] block">LinkedIn</span>
-                      <span className="text-[11px] font-mono text-[#929292]">Professional Network</span>
+                      <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">Professional Network</span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#929292] group-hover:text-[#171717] dark:group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-[#595959] dark:text-[#A1A1AA] group-hover:text-[#171717] dark:group-hover:text-white transition-colors" />
                 </a>
 
                 <a
@@ -133,10 +133,10 @@ export const ContactSection = ({ onOpenResume }) => {
                     <GithubIcon className="w-4 h-4 text-[#171717] dark:text-[#EDEDED]" />
                     <div>
                       <span className="text-xs font-bold text-[#171717] dark:text-[#EDEDED] block">GitHub</span>
-                      <span className="text-[11px] font-mono text-[#929292]">@themrsarii</span>
+                      <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">@themrsarii</span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#929292] group-hover:text-[#171717] dark:group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-[#595959] dark:text-[#A1A1AA] group-hover:text-[#171717] dark:group-hover:text-white transition-colors" />
                 </a>
               </div>
 
@@ -151,7 +151,7 @@ export const ContactSection = ({ onOpenResume }) => {
                     <FileText className="w-4 h-4 text-[#666666] dark:text-[#A1A1AA]" />
                     <span>View & Download Resume (CV)</span>
                   </div>
-                  <span className="font-mono text-[10px] text-[#929292]">PDF</span>
+                  <span className="font-mono text-[10px] text-[#595959] dark:text-[#A1A1AA]">PDF</span>
                 </button>
               </div>
             </div>
@@ -167,7 +167,7 @@ export const ContactSection = ({ onOpenResume }) => {
 
               {formSubmitted ? (
                 <div className="p-6 rounded-xl bg-[#F7F7F5] dark:bg-[#181920] border border-[#E8E8E8] dark:border-[#282B34] text-center space-y-3">
-                  <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
+                  <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center mx-auto">
                     <Check className="w-5 h-5" />
                   </div>
                   <h4 className="text-base font-bold text-[#171717] dark:text-[#EDEDED]">Email Ready</h4>

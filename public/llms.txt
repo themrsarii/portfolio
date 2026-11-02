@@ -1,0 +1,32 @@
+# Muhammad Sarfaraz - Full Stack MERN Developer
+
+> Muhammad Sarfaraz (Mr SARii) is a professional Full-Stack Engineer specializing in MERN stack web applications, RESTful APIs, and scalable software systems.
+
+## Overview
+- Developer: Muhammad Sarfaraz (Mr SARii)
+- Primary Stack: MongoDB, Express.js, React.js, Node.js (MERN)
+- Focus: Practical production web applications, offline-first systems, and responsive user interfaces
+- Location: Pakistan (Open to Remote and Global roles)
+- Contact: the.mrsarii@gmail.com | +92 300 2848525
+
+## Key Portfolio Sections
+- [Selected Work & Projects](https://portfolio.mrsarii.com/#work): Real-world web applications and systems built by Muhammad Sarfaraz.
+- [MERN Architecture](https://portfolio.mrsarii.com/#architecture): Connected four-tier architecture deep dive with interactive code specimens.
+- [Engineering Process](https://portfolio.mrsarii.com/#engineering): Five-stage engineering lifecycle from problem discovery to deployment.
+- [Technical Skills Matrix](https://portfolio.mrsarii.com/#skills): Core MERN stack, database design, and developer tooling breakdown.
+- [Work Experience & Milestones](https://portfolio.mrsarii.com/#experience): Practical experience timeline and production contributions.
+- [About Muhammad Sarfaraz](https://portfolio.mrsarii.com/#about): Engineering philosophy and background.
+- [GitHub Repositories](https://portfolio.mrsarii.com/#github): Public codebases and open-source contributions.
+- [Contact Channel](https://portfolio.mrsarii.com/#contact): Direct contact form and communication links.
+
+## Featured Production Products
+- [Retailspoint Restaurant POS](https://portfolio.mrsarii.com/#work): Offline-first desktop and web POS software for restaurant order management, KOT dispatch, shift accounting, and inventory.
+- [Bilal Shahpur Foods Business Platform](https://portfolio.mrsarii.com/#work): Urdu-first full-stack web platform for commercial dairy distribution, shopkeeper freezer schemes, and product catalogs.
+- [PrimeLinks Corporate Platform](https://portfolio.mrsarii.com/#work): Modern business website engineered for commercial service presentation and client consultation leads.
+- [ConnectSphere Social Network](https://portfolio.mrsarii.com/#work): Full-stack social networking platform featuring session authentication, asynchronous AJAX feeds, and relational database integrity.
+
+## External Profiles & Verification
+- [GitHub Profile](https://github.com/themrsarii): Source code repositories and developer commits.
+- [LinkedIn Profile](https://www.linkedin.com/in/themrsarii/?isSelfProfile=true): Professional identity and network.
+- [WhatsApp Direct Contact](https://wa.me/923002848525): Instant chat and project inquiries.
+

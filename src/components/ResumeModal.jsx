@@ -70,7 +70,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
                     Curriculum Vitae
                   </span>
                 </div>
-                <p className="text-[11px] font-mono text-[#666666] dark:text-[#929292] hidden sm:block">
+                <p className="text-[11px] font-mono text-[#666666] dark:text-[#595959] dark:text-[#A1A1AA] hidden sm:block">
                   Full Stack Engineer · MERN Architecture
                 </p>
               </div>
@@ -303,7 +303,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
           {/* Footer Bar */}
           <div className="p-3 sm:p-4 border-t border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#14151B] flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0 text-xs">
             <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
-              <span className="font-mono text-[#929292] text-[11px] sm:text-xs">
+              <span className="font-mono text-[#595959] dark:text-[#A1A1AA] text-[11px] sm:text-xs">
                 Email: <span className="text-[#171717] dark:text-[#EDEDED]">{emailAddress}</span>
               </span>
               <button

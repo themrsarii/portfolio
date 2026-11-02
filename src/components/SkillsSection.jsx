@@ -111,7 +111,7 @@ export const SkillsSection = () => {
                       >
                         {skill.name}
                         {skill.note && (
-                          <span className="text-[9px] text-[#929292] uppercase">({skill.note})</span>
+                          <span className="text-[9px] text-[#595959] dark:text-[#A1A1AA] uppercase">({skill.note})</span>
                         )}
                         {skill.status && (
                           <span className="text-[9px] px-1 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400">
@@ -124,7 +124,7 @@ export const SkillsSection = () => {
                 </div>
 
                 {isAdditional && (
-                  <div className="mt-4 pt-3 border-t border-[#E8E8E8] dark:border-[#222429] text-[10px] text-[#929292] font-mono">
+                  <div className="mt-4 pt-3 border-t border-[#E8E8E8] dark:border-[#222429] text-[10px] text-[#595959] dark:text-[#A1A1AA] font-mono">
                     * MERN is my core stack, with relational databases used where needed.
                   </div>
                 )}

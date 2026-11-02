@@ -21,7 +21,7 @@ export const Footer = ({ onOpenResume }) => {
               <span className="font-semibold text-[#171717] dark:text-[#EDEDED] text-sm block">
                 Muhammad Sarfaraz
               </span>
-              <span className="font-mono text-[11px] text-[#666666] dark:text-[#929292]">
+              <span className="font-mono text-[11px] text-[#666666] dark:text-[#595959] dark:text-[#A1A1AA]">
                 Full Stack Engineer · MERN Architecture
               </span>
             </div>
@@ -69,7 +69,7 @@ export const Footer = ({ onOpenResume }) => {
 
           {/* Copyright & Scroll to Top */}
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[11px] text-[#929292]">
+            <span className="font-mono text-[11px] text-[#595959] dark:text-[#A1A1AA]">
               © {new Date().getFullYear()} Muhammad Sarfaraz
             </span>
             <button

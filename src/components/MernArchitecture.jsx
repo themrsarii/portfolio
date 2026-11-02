@@ -20,75 +20,75 @@ export const MernArchitecture = () => {
       renderCode: () => (
         <>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">1</span>
-            <span className="table-cell"><span className="text-[#6A737D] italic">// Client-Side API Consumer Hook</span></span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">1</span>
+            <span className="table-cell"><span className="text-[#8B949E] italic">// Client-Side API Consumer Hook</span></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">2</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">2</span>
             <span className="table-cell"><span className="text-[#FF7B72]">import</span> &#123; useState, useEffect &#125; <span className="text-[#FF7B72]">from</span> <span className="text-[#9ECBFF]">'react'</span>;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">3</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">3</span>
             <span className="table-cell"></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">4</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">4</span>
             <span className="table-cell"><span className="text-[#FF7B72]">export const</span> <span className="text-[#79B8FF] font-semibold">useApplications</span> = () =&gt; &#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">5</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">5</span>
             <span className="table-cell">{'  '}<span className="text-[#FF7B72]">const</span> [data, setData] = <span className="text-[#B392F0]">useState</span>([]);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">6</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">6</span>
             <span className="table-cell">{'  '}<span className="text-[#FF7B72]">const</span> [loading, setLoading] = <span className="text-[#B392F0]">useState</span>(<span className="text-[#79B8FF]">true</span>);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">7</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">7</span>
             <span className="table-cell"></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">8</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">8</span>
             <span className="table-cell">{'  '}<span className="text-[#B392F0]">useEffect</span>(() =&gt; &#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">9</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">9</span>
             <span className="table-cell">{'    '}<span className="text-[#79B8FF]">fetch</span>(<span className="text-[#9ECBFF]">'/api/v1/applications'</span>, &#123; credentials: <span className="text-[#9ECBFF]">'include'</span> &#125;)</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">10</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">10</span>
             <span className="table-cell">{'      '}.<span className="text-[#B392F0]">then</span>(res =&gt; res.<span className="text-[#79B8FF]">json</span>())</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">11</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">11</span>
             <span className="table-cell">{'      '}.<span className="text-[#B392F0]">then</span>(payload =&gt; &#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">12</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">12</span>
             <span className="table-cell">{'        '}<span className="text-[#79B8FF]">setData</span>(payload);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">13</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">13</span>
             <span className="table-cell">{'        '}<span className="text-[#79B8FF]">setLoading</span>(<span className="text-[#79B8FF]">false</span>);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">14</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">14</span>
             <span className="table-cell">{'      '}&#125;);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">15</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">15</span>
             <span className="table-cell">{'  '}&#125;, []);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">16</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">16</span>
             <span className="table-cell"></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">17</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">17</span>
             <span className="table-cell">{'  '}<span className="text-[#FF7B72]">return</span> &#123; data, loading &#125;;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">18</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">18</span>
             <span className="table-cell">&#125;;</span>
           </div>
         </>
@@ -110,55 +110,55 @@ export const MernArchitecture = () => {
       renderCode: () => (
         <>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">1</span>
-            <span className="table-cell"><span className="text-[#6A737D] italic">// Express Route Controller & Middleware Pipeline</span></span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">1</span>
+            <span className="table-cell"><span className="text-[#8B949E] italic">// Express Route Controller & Middleware Pipeline</span></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">2</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">2</span>
             <span className="table-cell">router.<span className="text-[#B392F0]">get</span>(<span className="text-[#9ECBFF]">'/api/v1/applications'</span>,</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">3</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">3</span>
             <span className="table-cell">{'  '}authMiddleware.<span className="text-[#79B8FF]">verifyToken</span>,</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">4</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">4</span>
             <span className="table-cell">{'  '}<span className="text-[#B392F0]">rateLimiter</span>(&#123; windowMs: <span className="text-[#79B8FF]">15 * 60 * 1000</span>, max: <span className="text-[#79B8FF]">100</span> &#125;),</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">5</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">5</span>
             <span className="table-cell">{'  '}<span className="text-[#FF7B72]">async</span> (req, res, next) =&gt; &#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">6</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">6</span>
             <span className="table-cell">{'    '}<span className="text-[#FF7B72]">try</span> &#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">7</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">7</span>
             <span className="table-cell">{'      '}<span className="text-[#FF7B72]">const</span> items = <span className="text-[#FF7B72]">await</span> ApplicationService.<span className="text-[#79B8FF]">getUserApps</span>(req.user.id);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">8</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">8</span>
             <span className="table-cell">{'      '}<span className="text-[#FF7B72]">return</span> res.<span className="text-[#B392F0]">status</span>(<span className="text-[#79B8FF]">200</span>).<span className="text-[#79B8FF]">json</span>(&#123; success: <span className="text-[#79B8FF]">true</span>, data: items &#125;);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">9</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">9</span>
             <span className="table-cell">{'    '}&#125; <span className="text-[#FF7B72]">catch</span> (err) &#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">10</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">10</span>
             <span className="table-cell">{'      '}<span className="text-[#B392F0]">next</span>(err);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">11</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">11</span>
             <span className="table-cell">{'    '}&#125;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">12</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">12</span>
             <span className="table-cell">{'  '}&#125;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">13</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">13</span>
             <span className="table-cell">);</span>
           </div>
         </>
@@ -180,43 +180,43 @@ export const MernArchitecture = () => {
       renderCode: () => (
         <>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">1</span>
-            <span className="table-cell"><span className="text-[#6A737D] italic">// Asynchronous Event Loop Server Worker</span></span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">1</span>
+            <span className="table-cell"><span className="text-[#8B949E] italic">// Asynchronous Event Loop Server Worker</span></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">2</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">2</span>
             <span className="table-cell"><span className="text-[#FF7B72]">import</span> http <span className="text-[#FF7B72]">from</span> <span className="text-[#9ECBFF]">'node:http'</span>;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">3</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">3</span>
             <span className="table-cell"><span className="text-[#FF7B72]">import</span> app <span className="text-[#FF7B72]">from</span> <span className="text-[#9ECBFF]">'./app.js'</span>;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">4</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">4</span>
             <span className="table-cell"></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">5</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">5</span>
             <span className="table-cell"><span className="text-[#FF7B72]">const</span> server = http.<span className="text-[#79B8FF]">createServer</span>(app);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">6</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">6</span>
             <span className="table-cell"><span className="text-[#FF7B72]">const</span> PORT = process.env.PORT || <span className="text-[#79B8FF]">5000</span>;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">7</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">7</span>
             <span className="table-cell"></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">8</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">8</span>
             <span className="table-cell">server.<span className="text-[#B392F0]">listen</span>(PORT, () =&gt; &#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">9</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">9</span>
             <span className="table-cell">{'  '}console.<span className="text-[#79B8FF]">log</span>(<span className="text-[#9ECBFF]">`[NODE] Runtime listening on port $&#123;PORT&#125;`</span>);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">10</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">10</span>
             <span className="table-cell">&#125;);</span>
           </div>
         </>
@@ -238,43 +238,43 @@ export const MernArchitecture = () => {
       renderCode: () => (
         <>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">1</span>
-            <span className="table-cell"><span className="text-[#6A737D] italic">// Mongoose Schema with Compound Indexing</span></span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">1</span>
+            <span className="table-cell"><span className="text-[#8B949E] italic">// Mongoose Schema with Compound Indexing</span></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">2</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">2</span>
             <span className="table-cell"><span className="text-[#FF7B72]">const</span> ApplicationSchema = <span className="text-[#FF7B72]">new</span> mongoose.<span className="text-[#79B8FF]">Schema</span>(&#123;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">3</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">3</span>
             <span className="table-cell">{'  '}userId: &#123; type: mongoose.Schema.Types.ObjectId, ref: <span className="text-[#9ECBFF]">'User'</span>, required: <span className="text-[#79B8FF]">true</span> &#125;,</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">4</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">4</span>
             <span className="table-cell">{'  '}status: &#123; type: String, enum: [<span className="text-[#9ECBFF]">'applied'</span>, <span className="text-[#9ECBFF]">'interview'</span>, <span className="text-[#9ECBFF]">'offer'</span>] &#125;,</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">5</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">5</span>
             <span className="table-cell">{'  '}company: &#123; type: String, required: <span className="text-[#79B8FF]">true</span> &#125;,</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">6</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">6</span>
             <span className="table-cell">{'  '}appliedAt: &#123; type: Date, default: Date.now &#125;</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">7</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">7</span>
             <span className="table-cell">&#125;);</span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">8</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">8</span>
             <span className="table-cell"></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">9</span>
-            <span className="table-cell"><span className="text-[#6A737D] italic">// Compound indexing for sub-10ms filter performance</span></span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">9</span>
+            <span className="table-cell"><span className="text-[#8B949E] italic">// Compound indexing for sub-10ms filter performance</span></span>
           </div>
           <div className="table-row">
-            <span className="table-cell pr-4 text-right select-none text-[#4B5263]">10</span>
+            <span className="table-cell pr-4 text-right select-none text-[#768390]">10</span>
             <span className="table-cell">ApplicationSchema.<span className="text-[#B392F0]">index</span>(&#123; userId: <span className="text-[#79B8FF]">1</span>, status: <span className="text-[#79B8FF]">1</span> &#125;);</span>
           </div>
         </>
@@ -332,8 +332,8 @@ export const MernArchitecture = () => {
                   }`}>
                     {layer.letter}
                   </span>
-                  <span className="text-[10px] font-mono text-[#929292]">
-                    TIER 0{index + 1}
+                  <span className="text-[10px] font-mono text-[#595959] dark:text-[#A1A1AA]">
+                    Tier 0{index + 1}
                   </span>
                 </div>
 
@@ -341,7 +341,7 @@ export const MernArchitecture = () => {
                   <h3 className="font-semibold text-sm sm:text-base text-[#171717] dark:text-[#EDEDED]">
                     {layer.name}
                   </h3>
-                  <p className="text-xs font-mono text-[#666666] dark:text-[#929292] mt-0.5 truncate">
+                  <p className="text-xs font-mono text-[#666666] dark:text-[#595959] dark:text-[#A1A1AA] mt-0.5 truncate">
                     {layer.role}
                   </p>
                 </div>
@@ -405,7 +405,7 @@ export const MernArchitecture = () => {
                   <span>{currentLayer.fileName}</span>
                 </div>
 
-                <span className="text-[10px] font-mono text-[#6A737D] uppercase hidden sm:inline">
+                <span className="text-[10px] font-mono text-[#8B949E] uppercase hidden sm:inline">
                   JavaScript · UTF-8
                 </span>
               </div>
@@ -418,7 +418,7 @@ export const MernArchitecture = () => {
               </div>
 
               {/* Editor Status Bar */}
-              <div className="px-4 py-1.5 bg-[#090A0D] border-t border-[#1C1E26] flex items-center justify-between text-[10px] font-mono text-[#5C6370]">
+              <div className="px-4 py-1.5 bg-[#090A0D] border-t border-[#1C1E26] flex items-center justify-between text-[10px] font-mono text-[#8B949E]">
                 <span>Spaces: 2</span>
                 <span>MERN Architecture Tier</span>
               </div>

@@ -84,6 +84,7 @@ const SocialFeedMockup = () => {
         <div className="flex items-center gap-1">
           <button 
             type="button"
+            aria-label="Feed"
             className="flex items-center gap-1 px-2.5 py-1 rounded-md text-indigo-400 bg-indigo-500/10 font-medium text-[10px] sm:text-[11px] border border-indigo-500/20"
           >
             <Home className="w-3.5 h-3.5" />
@@ -91,6 +92,7 @@ const SocialFeedMockup = () => {
           </button>
           <button 
             type="button"
+            aria-label="Friends"
             className="flex items-center gap-1 px-2 py-1 text-neutral-400 hover:text-white text-[10px] sm:text-[11px] transition-colors"
           >
             <Users className="w-3.5 h-3.5" />
@@ -110,6 +112,7 @@ const SocialFeedMockup = () => {
           <div className="relative">
             <button
               type="button"
+              aria-label="View notifications"
               onClick={() => setShowNotifications(!showNotifications)}
               className={`relative p-1.5 rounded-lg border transition-colors ${
                 showNotifications 
@@ -1240,9 +1243,9 @@ const RestaurantPosMockup = () => {
                     <span>{item.code}</span>
                     <span className="text-amber-400/90 text-[7.5px] truncate max-w-[65px]">{item.tag}</span>
                   </div>
-                  <h5 className="font-semibold text-neutral-200 text-[10px] sm:text-[11px] leading-tight line-clamp-1 group-hover/item:text-indigo-300">
+                  <span className="block font-semibold text-neutral-200 text-[10px] sm:text-[11px] leading-tight line-clamp-1 group-hover/item:text-indigo-300">
                     {item.name}
-                  </h5>
+                  </span>
                 </div>
                 <div className="flex items-center justify-between mt-1 pt-1 border-t border-[#252B36]/40">
                   <span className="font-mono font-bold text-[10px] text-emerald-400">
@@ -1297,6 +1300,7 @@ const RestaurantPosMockup = () => {
                   <div className="flex items-center gap-1 shrink-0">
                     <button
                       type="button"
+                      aria-label={`Decrease ${item.name} quantity`}
                       onClick={(e) => { e.stopPropagation(); handleUpdateQty(item.id, -1); }}
                       className="w-4 h-4 rounded bg-[#1A2230] hover:bg-neutral-700 text-neutral-300 flex items-center justify-center"
                     >
@@ -1307,6 +1311,7 @@ const RestaurantPosMockup = () => {
                     </span>
                     <button
                       type="button"
+                      aria-label={`Increase ${item.name} quantity`}
                       onClick={(e) => { e.stopPropagation(); handleUpdateQty(item.id, 1); }}
                       className="w-4 h-4 rounded bg-[#1A2230] hover:bg-neutral-700 text-neutral-300 flex items-center justify-center"
                     >
@@ -1516,9 +1521,9 @@ const PrimeLinksMockup = () => {
                       <span className="text-cyan-400 font-semibold">{srv.tag}</span>
                       <span className="text-emerald-400">{srv.metric}</span>
                     </div>
-                    <h5 className="font-semibold text-neutral-200 text-[9.5px] sm:text-[10px] leading-tight line-clamp-1 group-hover:text-cyan-300">
+                    <span className="block font-semibold text-neutral-200 text-[9.5px] sm:text-[10px] leading-tight line-clamp-1 group-hover:text-cyan-300">
                       {srv.title}
-                    </h5>
+                    </span>
                     <p className="text-[8px] sm:text-[9px] text-neutral-400 mt-1 line-clamp-2 leading-snug">
                       {srv.desc}
                     </p>
@@ -1563,9 +1568,9 @@ const PrimeLinksMockup = () => {
                         </span>
                         <span className="text-emerald-400">{srv.metric}</span>
                       </div>
-                      <h5 className="font-bold text-neutral-200 text-[10px] sm:text-[11px]">
+                      <span className="block font-bold text-neutral-200 text-[10px] sm:text-[11px]">
                         {srv.title}
-                      </h5>
+                      </span>
                       <p className="text-[8.5px] sm:text-[9px] text-neutral-300 mt-1 leading-relaxed">
                         {srv.desc}
                       </p>

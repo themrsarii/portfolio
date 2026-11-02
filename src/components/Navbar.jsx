@@ -60,7 +60,7 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
               <span className="text-sm font-semibold tracking-tight text-[#171717] dark:text-[#EDEDED] transition-colors">
                 Muhammad Sarfaraz
               </span>
-              <span className="font-mono text-[10px] tracking-wider text-[#666666] dark:text-[#929292] font-medium flex items-center gap-1.5">
+              <span className="font-mono text-[10px] tracking-wider text-[#666666] dark:text-[#595959] dark:text-[#A1A1AA] font-medium flex items-center gap-1.5">
                 FULL STACK ENGINEER
               </span>
             </div>

@@ -55,7 +55,7 @@ export const TechStrip = () => {
                   <span className="text-xs font-medium text-[#171717] dark:text-[#EDEDED] block whitespace-nowrap">
                     {tech.name}
                   </span>
-                  <span className="text-[10px] font-mono text-[#929292] block whitespace-nowrap">
+                  <span className="text-[10px] font-mono text-[#595959] dark:text-[#A1A1AA] block whitespace-nowrap">
                     {tech.role}
                   </span>
                 </div>

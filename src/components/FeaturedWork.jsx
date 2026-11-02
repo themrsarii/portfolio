@@ -55,7 +55,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                   Offline-First Architecture
                 </span>
               </div>
-              <span className="text-xs font-mono text-[#929292]">
+              <span className="text-xs font-mono text-[#595959] dark:text-[#A1A1AA]">
                 Muhammad Sarfaraz & Hasan Tariq (Startup Collaboration)
               </span>
             </div>
@@ -167,7 +167,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                       </span>
                     )}
                   </div>
-                  <span className="text-[11px] font-mono text-[#929292]">
+                  <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
                     {project.badge}
                   </span>
                 </div>
@@ -214,7 +214,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                     </span>
                   ))}
                   {project.technologies.length > 5 && (
-                    <span className="px-2 py-0.5 rounded text-[11px] font-mono text-[#929292]">
+                    <span className="px-2 py-0.5 rounded text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
                       +{project.technologies.length - 5} more
                     </span>
                   )}
@@ -224,6 +224,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                   <button
                     onClick={() => onSelectProject(project)}
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-white bg-[#171717] hover:bg-[#262626] dark:bg-[#EDEDED] dark:text-[#090A0C] dark:hover:bg-white rounded-md transition-colors"
+                    aria-label={`View ${project.title} technical case study`}
                   >
                     <BookOpen className="w-3.5 h-3.5" />
                     <span>Case Study</span>
@@ -237,6 +238,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white bg-[#F7F7F5] dark:bg-[#141418] border border-[#E8E8E8] dark:border-[#222429] rounded-md transition-colors"
                         title="GitHub Repository"
+                        aria-label={`View ${project.title} source code on GitHub`}
                       >
                         <GithubIcon className="w-3.5 h-3.5" />
                         <span className="hidden xs:inline">Code</span>
@@ -249,6 +251,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-[#171717] dark:text-[#EDEDED] bg-[#F7F7F5] dark:bg-[#141418] border border-[#E8E8E8] dark:border-[#222429] rounded-md transition-colors"
                         title="Live Demo"
+                        aria-label={`Visit ${project.title} live website`}
                       >
                         <span>Demo</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
