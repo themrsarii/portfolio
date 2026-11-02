@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TechStrip } from './components/TechStrip';
 import { FeaturedWork } from './components/FeaturedWork';
-import { CaseStudyModal } from './components/CaseStudyModal';
 import { HowIBuild } from './components/HowIBuild';
 import { MernArchitecture } from './components/MernArchitecture';
 import { SkillsSection } from './components/SkillsSection';
@@ -12,7 +11,11 @@ import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { GithubSection } from './components/GithubSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { ResumeModal } from './components/ResumeModal';
+import { WhatsAppWidget } from './components/WhatsAppWidget';
+
+// Lazy-load modal overlays for minimal initial JS evaluation & optimal PageSpeed
+const CaseStudyModal = lazy(() => import('./components/CaseStudyModal'));
+const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
 export function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -85,16 +88,25 @@ export function App() {
       {/* Minimalist Editorial Footer */}
       <Footer onOpenResume={() => setResumeOpen(true)} />
 
-      {/* Modals */}
-      <CaseStudyModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {/* Floating Direct Contact WhatsApp Widget */}
+      <WhatsAppWidget />
 
-      <ResumeModal
-        isOpen={resumeOpen}
-        onClose={() => setResumeOpen(false)}
-      />
+      {/* Modals (Lazy-loaded) */}
+      <Suspense fallback={null}>
+        {selectedProject && (
+          <CaseStudyModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+
+        {resumeOpen && (
+          <ResumeModal
+            isOpen={resumeOpen}
+            onClose={() => setResumeOpen(false)}
+          />
+        )}
+      </Suspense>
     </div>
   );
 }

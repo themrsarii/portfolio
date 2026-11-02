@@ -1,9 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, FileText } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
+const TYPING_PHRASES = [
+  "Full Stack Developer",
+  "Specializing in the MERN Stack",
+];
+
 export const Hero = ({ onOpenResume }) => {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const targetPhrase = TYPING_PHRASES[phraseIndex];
+    let timer;
+
+    if (isDeleting) {
+      if (displayText.length > 0) {
+        timer = setTimeout(() => {
+          setDisplayText(targetPhrase.substring(0, displayText.length - 1));
+        }, 30);
+      } else {
+        timer = setTimeout(() => {
+          setIsDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % TYPING_PHRASES.length);
+        }, 250);
+      }
+    } else {
+      if (displayText.length < targetPhrase.length) {
+        timer = setTimeout(() => {
+          setDisplayText(targetPhrase.substring(0, displayText.length + 1));
+        }, 65);
+      } else {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2000);
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, phraseIndex]);
   return (
     <section
       id="hero"
@@ -11,10 +49,10 @@ export const Hero = ({ onOpenResume }) => {
     >
       <div className="max-w-7xl mx-auto w-full my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
+
           {/* Main Editorial Column (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            
+
             {/* Subtle Availability & Role Indicator */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -23,7 +61,7 @@ export const Hero = ({ onOpenResume }) => {
               className="flex flex-wrap items-center gap-2.5 mb-3 sm:mb-4"
             >
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#F7F7F5] dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] text-xs font-mono text-[#666666] dark:text-[#A1A1AA]">
-                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+
                 <span>Available for full-time roles and freelance work</span>
               </div>
               <span className="text-xs font-mono text-[#929292] hidden sm:inline">
@@ -41,14 +79,20 @@ export const Hero = ({ onOpenResume }) => {
               Muhammad Sarfaraz
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="text-base sm:text-lg font-medium text-indigo-600 dark:text-indigo-400 mt-1.5 tracking-tight"
+              className="min-h-[1.75rem] sm:min-h-[2rem] flex items-center mt-1.5"
             >
-              Full Stack Developer, specializing in the MERN stack
-            </motion.p>
+              <span className="text-base sm:text-lg font-medium text-indigo-600 dark:text-indigo-400 tracking-tight">
+                {displayText}
+              </span>
+              <span
+                className="inline-block w-[2px] h-[1.15em] bg-indigo-600 dark:bg-indigo-400 ml-1.5 animate-cursor align-middle"
+                aria-hidden="true"
+              />
+            </motion.div>
 
             {/* Concise Value Proposition */}
             <motion.p
@@ -144,7 +188,7 @@ export const Hero = ({ onOpenResume }) => {
             >
               {/* Art-Directed Frame */}
               <div className="relative rounded-2xl overflow-hidden border border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#111114] shadow-sm">
-                
+
                 {/* Clean Frame Bar */}
                 <div className="px-3.5 py-2 border-b border-[#E8E8E8] dark:border-[#222429] flex items-center justify-between bg-white dark:bg-[#141418]">
                   <div className="flex items-center gap-1.5">
@@ -162,6 +206,8 @@ export const Hero = ({ onOpenResume }) => {
                   <img
                     src="/assets/hero-portrait-natural.webp"
                     alt="Muhammad Sarfaraz, Full Stack Developer"
+                    width="340"
+                    height="425"
                     className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                     loading="eager"
                     fetchPriority="high"

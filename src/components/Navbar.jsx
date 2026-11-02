@@ -43,8 +43,8 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${scrolled
-            ? 'bg-[#FFFFFF]/90 dark:bg-[#090A0C]/90 backdrop-blur-md border-b border-[#E8E8E8] dark:border-[#222429] py-3 shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-none'
-            : 'bg-transparent py-4 sm:py-5 border-b border-transparent'
+          ? 'bg-[#FFFFFF]/90 dark:bg-[#090A0C]/90 backdrop-blur-md border-b border-[#E8E8E8] dark:border-[#222429] py-3 shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-none'
+          : 'bg-transparent py-4 sm:py-5 border-b border-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -61,7 +61,6 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
                 Muhammad Sarfaraz
               </span>
               <span className="font-mono text-[10px] tracking-wider text-[#666666] dark:text-[#929292] font-medium flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 FULL STACK ENGINEER
               </span>
             </div>
@@ -76,8 +75,8 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
                   key={link.name}
                   href={link.href}
                   className={`px-3 py-1 text-xs font-medium rounded-full transition-all relative ${isActive
-                      ? 'text-[#171717] dark:text-white'
-                      : 'text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white'
+                    ? 'text-[#171717] dark:text-white'
+                    : 'text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white'
                     }`}
                 >
                   {isActive && (
@@ -98,14 +97,14 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
             {/* Theme Toggle Button */}
             <button
               onClick={onToggleTheme}
-              className="p-1.5 rounded-md border border-[#E8E8E8] dark:border-[#222429] bg-white dark:bg-[#131418] text-[#666666] dark:text-white hover:text-[#171717] dark:hover:text-white transition-colors"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="p-2 rounded-lg border border-[#E8E8E8] dark:border-[#282B34] bg-[#F7F7F5] dark:bg-[#14151B] text-[#555555] dark:text-[#CCCCCC] hover:text-[#171717] dark:hover:text-white hover:border-[#D4D4D4] dark:hover:border-[#383C46] transition-all flex items-center justify-center"
+              aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+              title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
             >
               {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400" />
+                <Sun className="w-4 h-4 text-neutral-200 transition-transform duration-300 hover:rotate-45" strokeWidth={1.8} />
               ) : (
-                <Moon className="w-4 h-4 text-[#171717]" />
+                <Moon className="w-4 h-4 text-neutral-800 transition-transform duration-300 hover:-rotate-12" strokeWidth={1.8} />
               )}
             </button>
 
@@ -130,10 +129,14 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
           <div className="flex sm:hidden items-center gap-1.5">
             <button
               onClick={onToggleTheme}
-              className="p-1.5 rounded-md border border-[#E8E8E8] dark:border-[#222429] bg-white dark:bg-[#131418] text-[#666666] dark:text-[#A1A1AA]"
-              aria-label="Toggle theme"
+              className="p-2 rounded-lg border border-[#E8E8E8] dark:border-[#282B34] bg-[#F7F7F5] dark:bg-[#14151B] text-[#555555] dark:text-[#CCCCCC]"
+              aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#171717]" />}
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-neutral-200" strokeWidth={1.8} />
+              ) : (
+                <Moon className="w-4 h-4 text-neutral-800" strokeWidth={1.8} />
+              )}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

@@ -146,6 +146,20 @@
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
 }
 
+/* Typing Cursor Blink Animation */
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor {
+  animation: cursor-blink 0.85s step-start infinite;
+}
+
 /* Light-Mode Adaptations for Project Mockups in Selected Work */
 html:not(.dark) .mockup-theme {
   color-scheme: light;

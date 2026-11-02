@@ -81,6 +81,9 @@
   <link rel="apple-touch-icon" href="/assets/favicon.svg" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
+  <!-- Preload Hero LCP Asset -->
+  <link rel="preload" as="image" href="/assets/hero-portrait-natural.webp" type="image/webp" fetchpriority="high" />
+
   <!-- Google Fonts: Geist, Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -88,7 +91,7 @@
     href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet" />
 
-  <!-- Structured Data: JSON-LD Graph (Google Rich Results Compliant) -->
+  <!-- Structured Data: JSON-LD Graph (Google Rich Results Compliant & AI Agent Search) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -97,7 +100,9 @@
         "@type": "Person",
         "@id": "https://portfolio.mrsarii.com/#person",
         "name": "Muhammad Sarfaraz",
+        "alternateName": "Mr SARii",
         "jobTitle": "MERN Stack Developer & Full-Stack Engineer",
+        "telephone": "+923002848525",
         "url": "https://portfolio.mrsarii.com",
         "image": "https://portfolio.mrsarii.com/assets/profile.jpg",
         "email": "the.mrsarii@gmail.com",
