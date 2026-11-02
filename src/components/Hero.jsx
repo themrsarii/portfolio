@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, FileText } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
@@ -10,7 +9,7 @@ const TYPING_PHRASES = [
 
 export const Hero = ({ onOpenResume }) => {
   const [phraseIndex, setPhraseIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState(TYPING_PHRASES[0]);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -36,12 +35,13 @@ export const Hero = ({ onOpenResume }) => {
       } else {
         timer = setTimeout(() => {
           setIsDeleting(true);
-        }, 2000);
+        }, 2500);
       }
     }
 
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, phraseIndex]);
+
   return (
     <section
       id="hero"
@@ -54,37 +54,21 @@ export const Hero = ({ onOpenResume }) => {
           <div className="lg:col-span-7 flex flex-col justify-center">
 
             {/* Subtle Availability & Role Indicator */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className="flex flex-wrap items-center gap-2.5 mb-3 sm:mb-4"
-            >
+            <div className="flex flex-wrap items-center gap-2.5 mb-3 sm:mb-4">
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#F7F7F5] dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] text-xs font-mono text-[#666666] dark:text-[#A1A1AA]">
-
                 <span>Available for full-time roles and freelance work</span>
               </div>
               <span className="text-xs font-mono text-[#595959] dark:text-[#A1A1AA] hidden sm:inline">
                 Pakistan, Remote
               </span>
-            </motion.div>
+            </div>
 
             {/* Prominent Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#171717] dark:text-[#EDEDED] leading-[1.12]"
-            >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#171717] dark:text-[#EDEDED] leading-[1.12]">
               Muhammad Sarfaraz
-            </motion.h1>
+            </h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="min-h-[1.75rem] sm:min-h-[2rem] flex items-center mt-1.5"
-            >
+            <div className="min-h-[1.75rem] sm:min-h-[2rem] flex items-center mt-1.5">
               <span className="text-base sm:text-lg font-medium text-indigo-600 dark:text-indigo-400 tracking-tight">
                 {displayText}
               </span>
@@ -92,25 +76,15 @@ export const Hero = ({ onOpenResume }) => {
                 className="inline-block w-[2px] h-[1.15em] bg-indigo-600 dark:bg-indigo-400 ml-1.5 animate-cursor align-middle"
                 aria-hidden="true"
               />
-            </motion.div>
+            </div>
 
             {/* Concise Value Proposition */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="mt-4 text-sm sm:text-base text-[#666666] dark:text-[#A1A1AA] leading-relaxed max-w-xl"
-            >
+            <p className="mt-4 text-sm sm:text-base text-[#666666] dark:text-[#A1A1AA] leading-relaxed max-w-xl">
               I build full-stack web applications and tools that people actually use. My core focus is the MERN stack (React, Node, Express, MongoDB), with hands-on experience building an offline-capable restaurant POS and client web platforms.
-            </motion.p>
+            </p>
 
             {/* Call to Actions */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 mt-6 pt-1"
-            >
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 mt-6 pt-1">
               {/* Primary CTA */}
               <a
                 href="#work"
@@ -149,15 +123,10 @@ export const Hero = ({ onOpenResume }) => {
                 <GithubIcon className="w-4 h-4" />
                 <span className="hidden xs:inline">GitHub</span>
               </a>
-            </motion.div>
+            </div>
 
             {/* Quick Engineering Focus Strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.45, delay: 0.25 }}
-              className="mt-8 pt-6 border-t border-[#E8E8E8] dark:border-[#222429] grid grid-cols-2 gap-6 max-w-lg"
-            >
+            <div className="mt-8 pt-6 border-t border-[#E8E8E8] dark:border-[#222429] grid grid-cols-2 gap-6 max-w-lg">
               <div>
                 <span className="block text-[11px] font-mono uppercase tracking-wider text-[#595959] dark:text-[#A1A1AA]">
                   Primary Stack
@@ -174,18 +143,13 @@ export const Hero = ({ onOpenResume }) => {
                   Frontend and REST APIs
                 </span>
               </div>
-            </motion.div>
+            </div>
 
           </div>
 
           {/* Right Portrait & Visual Composition (5 cols) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.45, delay: 0.15 }}
-              className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[340px]"
-            >
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[340px]">
               {/* Art-Directed Frame */}
               <div className="relative rounded-2xl overflow-hidden border border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#111114] shadow-sm">
 
@@ -234,7 +198,7 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
 
               </div>
-            </motion.div>
+            </div>
           </div>
 
         </div>

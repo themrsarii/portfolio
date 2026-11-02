@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, FileText, ArrowUpRight, Sun, Moon } from 'lucide-react';
 
 export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
@@ -8,25 +7,45 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setScrolled(scrollY > 20);
-
-      const sections = ['hero', 'work', 'architecture', 'engineering', 'skills', 'experience', 'about', 'contact'];
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 160 && rect.bottom >= 160) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Efficient IntersectionObserver for section highlighting without layout reflows
+    const sections = ['hero', 'work', 'architecture', 'engineering', 'skills', 'experience', 'about', 'contact'];
+    const observers = [];
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActiveSection(id);
+              }
+            });
+          },
+          { rootMargin: '-20% 0px -70% 0px' }
+        );
+        observer.observe(el);
+        observers.push(observer);
+      }
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observers.forEach((obs) => obs.disconnect());
+    };
   }, []);
 
   const navLinks = [
@@ -80,10 +99,8 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
                     }`}
                 >
                   {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute inset-0 bg-white dark:bg-[#202228] border border-[#E8E8E8] dark:border-[#2E3138] rounded-full shadow-sm"
-                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                    <div
+                      className="absolute inset-0 bg-white dark:bg-[#202228] border border-[#E8E8E8] dark:border-[#2E3138] rounded-full shadow-sm transition-all duration-150"
                     />
                   )}
                   <span className="relative z-10">{link.name}</span>
@@ -150,51 +167,45 @@ export const Navbar = ({ onOpenResume, theme, onToggleTheme }) => {
       </header>
 
       {/* Mobile Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.15 }}
-            className="fixed inset-x-0 top-[60px] z-30 bg-[#FFFFFF] dark:bg-[#0E0F13] border-b border-[#E8E8E8] dark:border-[#222429] p-5 shadow-xl sm:hidden"
-          >
-            <div className="flex flex-col gap-1.5">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-3.5 py-2 text-sm font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white hover:bg-[#F7F7F5] dark:hover:bg-[#14151A] rounded-md transition-colors flex items-center justify-between"
-                >
-                  <span>{link.name}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-                </a>
-              ))}
-              <div className="pt-3 mt-2 border-t border-[#E8E8E8] dark:border-[#222429] flex flex-col gap-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenResume();
-                  }}
-                  className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-[#171717] dark:text-[#EDEDED] bg-[#F7F7F5] dark:bg-[#14151A] border border-[#E8E8E8] dark:border-[#222429] rounded-md"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>View Resume</span>
-                </button>
-                <a
-                  href="#contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-white bg-[#171717] dark:bg-[#EDEDED] dark:text-[#090A0C] rounded-md"
-                >
-                  <span>Get in touch</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-x-0 top-[60px] z-30 bg-[#FFFFFF] dark:bg-[#0E0F13] border-b border-[#E8E8E8] dark:border-[#222429] p-5 shadow-xl sm:hidden transition-all duration-150 ease-out"
+        >
+          <div className="flex flex-col gap-1.5">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3.5 py-2 text-sm font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white hover:bg-[#F7F7F5] dark:hover:bg-[#14151A] rounded-md transition-colors flex items-center justify-between"
+              >
+                <span>{link.name}</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+              </a>
+            ))}
+            <div className="pt-3 mt-2 border-t border-[#E8E8E8] dark:border-[#222429] flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenResume();
+                }}
+                className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-[#171717] dark:text-[#EDEDED] bg-[#F7F7F5] dark:bg-[#14151A] border border-[#E8E8E8] dark:border-[#222429] rounded-md"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>View Resume</span>
+              </button>
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-white bg-[#171717] dark:bg-[#EDEDED] dark:text-[#090A0C] rounded-md"
+              >
+                <span>Get in touch</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </>
   );
 };

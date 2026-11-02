@@ -3,15 +3,17 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TechStrip } from './components/TechStrip';
 import { FeaturedWork } from './components/FeaturedWork';
-import { HowIBuild } from './components/HowIBuild';
-import { MernArchitecture } from './components/MernArchitecture';
-import { SkillsSection } from './components/SkillsSection';
-import { AboutSection } from './components/AboutSection';
-import { ExperienceTimeline } from './components/ExperienceTimeline';
-import { GithubSection } from './components/GithubSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
+
+// Code-split below-the-fold modules to maximize Lighthouse Speed Index & minimize Total Blocking Time
+const MernArchitecture = lazy(() => import('./components/MernArchitecture').then(m => ({ default: m.MernArchitecture })));
+const HowIBuild = lazy(() => import('./components/HowIBuild').then(m => ({ default: m.HowIBuild })));
+const SkillsSection = lazy(() => import('./components/SkillsSection').then(m => ({ default: m.SkillsSection })));
+const ExperienceTimeline = lazy(() => import('./components/ExperienceTimeline').then(m => ({ default: m.ExperienceTimeline })));
+const AboutSection = lazy(() => import('./components/AboutSection').then(m => ({ default: m.AboutSection })));
+const GithubSection = lazy(() => import('./components/GithubSection').then(m => ({ default: m.GithubSection })));
+const ContactSection = lazy(() => import('./components/ContactSection').then(m => ({ default: m.ContactSection })));
 
 // Lazy-load modal overlays for minimal initial JS evaluation & optimal PageSpeed
 const CaseStudyModal = lazy(() => import('./components/CaseStudyModal'));
@@ -39,6 +41,29 @@ export function App() {
     }
   }, [theme]);
 
+  // Preload below-the-fold components during idle periods
+  useEffect(() => {
+    const preload = () => {
+      import('./components/MernArchitecture');
+      import('./components/HowIBuild');
+      import('./components/SkillsSection');
+      import('./components/ExperienceTimeline');
+      import('./components/AboutSection');
+      import('./components/GithubSection');
+      import('./components/ContactSection');
+    };
+
+    if (typeof window !== 'undefined') {
+      if ('requestIdleCallback' in window) {
+        const id = window.requestIdleCallback(preload);
+        return () => window.cancelIdleCallback(id);
+      } else {
+        const timer = setTimeout(preload, 1200);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
   const toggleTheme = () => {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
@@ -63,26 +88,29 @@ export function App() {
         {/* Selected Work: Premium Editorial Showcase */}
         <FeaturedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* Connected MERN Architecture & Code Deep Dive */}
-        <MernArchitecture />
+        {/* Deferred Content Sections wrapped in Suspense for maximum LCP & Speed Index */}
+        <Suspense fallback={null}>
+          {/* Connected MERN Architecture & Code Deep Dive */}
+          <MernArchitecture />
 
-        {/* How I Build (5-Stage Engineering Lifecycle + Capabilities) */}
-        <HowIBuild />
+          {/* How I Build (5-Stage Engineering Lifecycle + Capabilities) */}
+          <HowIBuild />
 
-        {/* Categorized Skills Matrix */}
-        <SkillsSection />
+          {/* Categorized Skills Matrix */}
+          <SkillsSection />
 
-        {/* Experience & Journey Timeline */}
-        <ExperienceTimeline />
+          {/* Experience & Journey Timeline */}
+          <ExperienceTimeline />
 
-        {/* About Section: Developer Focused on Useful Software */}
-        <AboutSection />
+          {/* About Section: Developer Focused on Useful Software */}
+          <AboutSection />
 
-        {/* GitHub Code & Open Source Repositories */}
-        <GithubSection />
+          {/* GitHub Code & Open Source Repositories */}
+          <GithubSection />
 
-        {/* Contact Section: Direct Collaboration & Inquiries */}
-        <ContactSection onOpenResume={() => setResumeOpen(true)} />
+          {/* Contact Section: Direct Collaboration & Inquiries */}
+          <ContactSection onOpenResume={() => setResumeOpen(true)} />
+        </Suspense>
       </main>
 
       {/* Minimalist Editorial Footer */}

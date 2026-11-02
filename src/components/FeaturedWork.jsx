@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowUpRight, BookOpen, ExternalLink } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { ProjectMockup } from './ProjectMockup';
@@ -38,11 +37,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
 
         {/* 1. FLAGSHIP PROJECT SHOWCASE (Large Spanning Layout) */}
         {flagshipProject && (
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.4 }}
+          <article
             className="mb-14 rounded-2xl bg-[#FFFFFF] dark:bg-[#0F1014] border border-[#E8E8E8] dark:border-[#222429] overflow-hidden shadow-sm"
           >
             {/* Project Header Bar */}
@@ -140,18 +135,14 @@ export const FeaturedWork = ({ onSelectProject }) => {
               </div>
 
             </div>
-          </motion.article>
+          </article>
         )}
 
         {/* 2. SECONDARY PROJECTS (Balanced Alternating Layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-          {gridProjects.map((project, idx) => (
-            <motion.article
+          {gridProjects.map((project) => (
+            <article
               key={project.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
               className="rounded-2xl bg-[#FFFFFF] dark:bg-[#0F1014] border border-[#E8E8E8] dark:border-[#222429] overflow-hidden flex flex-col justify-between shadow-sm"
             >
               <div>
@@ -261,7 +252,7 @@ export const FeaturedWork = ({ onSelectProject }) => {
                 </div>
               </div>
 
-            </motion.article>
+            </article>
           ))}
         </div>
 
