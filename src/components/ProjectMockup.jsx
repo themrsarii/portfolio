@@ -130,7 +130,7 @@ const SocialFeedMockup = () => {
             {/* Notification Dropdown Popover */}
             {showNotifications && (
               <div className="absolute right-0 top-9 w-64 sm:w-72 bg-[#0E131C] border border-[#252B36] rounded-xl shadow-2xl p-2.5 z-50 text-[10px] space-y-1.5 animate-in fade-in zoom-in-95">
-                <div className="flex items-center justify-between pb-1.5 border-b border-[#252B36]/80 text-[#98A1AF] font-mono text-[9px]">
+                <div className="flex items-center justify-between pb-1.5 border-b border-[#252B36]/80 text-[#A1A1AA] font-mono text-[9px]">
                   <span className="font-semibold text-neutral-200">Notifications (3 Unread)</span>
                   <span className="text-indigo-400 cursor-pointer hover:underline" onClick={() => setShowNotifications(false)}>Close</span>
                 </div>
@@ -1157,7 +1157,7 @@ const RestaurantPosMockup = () => {
             <span className="font-bold text-[11px] sm:text-xs text-white tracking-tight">
               Retailspoint<span className="text-amber-400">POS</span>
             </span>
-            <span className="hidden sm:inline font-mono text-[9px] text-[#98A1AF]">
+            <span className="hidden sm:inline font-mono text-[9px] text-[#A1A1AA]">
               Station #01
             </span>
           </div>
@@ -1439,7 +1439,7 @@ const PrimeLinksMockup = () => {
             <span className="font-bold text-[11px] sm:text-xs text-white tracking-tight">
               Prime<span className="text-cyan-400">Links</span>
             </span>
-            <span className="hidden sm:inline font-mono text-[9px] text-[#98A1AF]">
+            <span className="hidden sm:inline font-mono text-[9px] text-[#A1A1AA]">
               Business Portal
             </span>
           </div>

@@ -405,7 +405,7 @@ export const MernArchitecture = () => {
                   <span>{currentLayer.fileName}</span>
                 </div>
 
-                <span className="text-[10px] font-mono text-[#8B949E] uppercase hidden sm:inline">
+                <span className="text-[10px] font-mono text-[#A1A1AA] uppercase hidden sm:inline">
                   JavaScript · UTF-8
                 </span>
               </div>
@@ -418,7 +418,7 @@ export const MernArchitecture = () => {
               </div>
 
               {/* Editor Status Bar */}
-              <div className="px-4 py-1.5 bg-[#090A0D] border-t border-[#1C1E26] flex items-center justify-between text-[10px] font-mono text-[#8B949E]">
+              <div className="px-4 py-1.5 bg-[#090A0D] border-t border-[#1C1E26] flex items-center justify-between text-[10px] font-mono text-[#A1A1AA]">
                 <span>Spaces: 2</span>
                 <span>MERN Architecture Tier</span>
               </div>

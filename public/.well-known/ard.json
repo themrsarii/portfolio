@@ -1,29 +1,20 @@
 {
-  "$schema": "https://agenticresourcediscovery.org/schemas/v1/ard.json",
-  "version": "1.0",
   "entries": [
     {
-      "id": "muhammad-sarfaraz-portfolio",
-      "name": "Muhammad Sarfaraz Developer Portfolio",
-      "description": "Professional engineering portfolio of Muhammad Sarfaraz (Mr SARii), Full Stack MERN Developer specializing in React, Node, Express, MongoDB, and offline-first software.",
-      "url": "https://portfolio.mrsarii.com",
-      "type": "website",
-      "resources": [
-        {
-          "type": "documentation",
-          "name": "LLM Developer Documentation",
-          "url": "https://portfolio.mrsarii.com/llms.txt"
-        },
-        {
-          "type": "portfolio",
-          "name": "Selected Software Products",
-          "url": "https://portfolio.mrsarii.com/#work"
-        },
-        {
-          "type": "contact",
-          "name": "Direct Communication",
-          "url": "https://portfolio.mrsarii.com/#contact"
-        }
+      "identifier": "urn:air:mrsarii.com:portfolio:developer-agent",
+      "displayName": "Muhammad Sarfaraz Developer Portfolio",
+      "type": "text/markdown",
+      "url": "https://portfolio.mrsarii.com/llms.txt",
+      "description": "Professional engineering portfolio and agentic profile of Muhammad Sarfaraz, Full Stack MERN Developer.",
+      "capabilities": [
+        "MernStackDevelopment",
+        "RestApiDesign",
+        "OfflineFirstSoftware"
+      ],
+      "representativeQueries": [
+        "Muhammad Sarfaraz full stack developer",
+        "MERN stack developer portfolio and case studies",
+        "offline-first restaurant POS case study"
       ]
     }
   ]

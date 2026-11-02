@@ -41,9 +41,12 @@ export function App() {
     }
   }, [theme]);
 
-  // Preload below-the-fold components during idle periods
+  // Preload deferred sections on first user interaction or after settled delay
   useEffect(() => {
+    let preloaded = false;
     const preload = () => {
+      if (preloaded) return;
+      preloaded = true;
       import('./components/MernArchitecture');
       import('./components/HowIBuild');
       import('./components/SkillsSection');
@@ -53,15 +56,25 @@ export function App() {
       import('./components/ContactSection');
     };
 
-    if (typeof window !== 'undefined') {
-      if ('requestIdleCallback' in window) {
-        const id = window.requestIdleCallback(preload);
-        return () => window.cancelIdleCallback(id);
-      } else {
-        const timer = setTimeout(preload, 1200);
-        return () => clearTimeout(timer);
-      }
-    }
+    const onUserAction = () => {
+      preload();
+      window.removeEventListener('scroll', onUserAction);
+      window.removeEventListener('pointerdown', onUserAction);
+      window.removeEventListener('keydown', onUserAction);
+    };
+
+    window.addEventListener('scroll', onUserAction, { passive: true, once: true });
+    window.addEventListener('pointerdown', onUserAction, { passive: true, once: true });
+    window.addEventListener('keydown', onUserAction, { passive: true, once: true });
+
+    const timer = setTimeout(preload, 6000);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', onUserAction);
+      window.removeEventListener('pointerdown', onUserAction);
+      window.removeEventListener('keydown', onUserAction);
+    };
   }, []);
 
   const toggleTheme = () => {

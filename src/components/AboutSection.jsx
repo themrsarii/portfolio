@@ -92,8 +92,8 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] text-xs font-mono text-[#666666] dark:text-[#A1A1AA] flex items-center gap-3">
-              <Terminal className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+            <div className="p-4 rounded-xl bg-white dark:bg-[#111216] border border-[#E8E8E8] dark:border-[#222429] text-xs font-mono text-[#4B5563] dark:text-[#A1A1AA] flex items-center gap-3">
+              <Terminal className="w-4 h-4 text-indigo-700 dark:text-indigo-400 shrink-0" />
               <span>Targeting full-stack roles at product companies, high-growth startups, and engineering teams.</span>
             </div>
           </div>

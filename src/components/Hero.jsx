@@ -55,10 +55,10 @@ export const Hero = ({ onOpenResume }) => {
 
             {/* Subtle Availability & Role Indicator */}
             <div className="flex flex-wrap items-center gap-2.5 mb-3 sm:mb-4">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#F7F7F5] dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] text-xs font-mono text-[#666666] dark:text-[#A1A1AA]">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#F7F7F5] dark:bg-[#131418] border border-[#E8E8E8] dark:border-[#222429] text-xs font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                 <span>Available for full-time roles and freelance work</span>
               </div>
-              <span className="text-xs font-mono text-[#595959] dark:text-[#A1A1AA] hidden sm:inline">
+              <span className="text-xs font-mono text-[#4B5563] dark:text-[#A1A1AA] hidden sm:inline">
                 Pakistan, Remote
               </span>
             </div>
@@ -69,17 +69,17 @@ export const Hero = ({ onOpenResume }) => {
             </h1>
 
             <div className="min-h-[1.75rem] sm:min-h-[2rem] flex items-center mt-1.5">
-              <span className="text-base sm:text-lg font-medium text-indigo-600 dark:text-indigo-400 tracking-tight">
+              <span className="text-base sm:text-lg font-medium text-indigo-700 dark:text-indigo-400 tracking-tight">
                 {displayText}
               </span>
               <span
-                className="inline-block w-[2px] h-[1.15em] bg-indigo-600 dark:bg-indigo-400 ml-1.5 animate-cursor align-middle"
+                className="inline-block w-[2px] h-[1.15em] bg-indigo-700 dark:bg-indigo-400 ml-1.5 animate-cursor align-middle"
                 aria-hidden="true"
               />
             </div>
 
             {/* Concise Value Proposition */}
-            <p className="mt-4 text-sm sm:text-base text-[#666666] dark:text-[#A1A1AA] leading-relaxed max-w-xl">
+            <p className="mt-4 text-sm sm:text-base text-[#4B5563] dark:text-[#A1A1AA] leading-relaxed max-w-xl">
               I build full-stack web applications and tools that people actually use. My core focus is the MERN stack (React, Node, Express, MongoDB), with hands-on experience building an offline-capable restaurant POS and client web platforms.
             </p>
 
@@ -100,13 +100,13 @@ export const Hero = ({ onOpenResume }) => {
                 className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-md text-xs sm:text-sm font-medium text-[#171717] dark:text-[#EDEDED] bg-[#F7F7F5] dark:bg-[#131418] hover:bg-[#EAEAEA] dark:hover:bg-[#1A1B22] border border-[#E8E8E8] dark:border-[#222429] transition-colors"
               >
                 <span>Get in touch</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#666666] dark:text-[#A1A1AA]" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#4B5563] dark:text-[#A1A1AA]" />
               </a>
 
               {/* Resume CTA */}
               <button
                 onClick={onOpenResume}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-xs sm:text-sm font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-xs sm:text-sm font-medium text-[#4B5563] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white transition-colors"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Resume (CV)</span>
@@ -117,7 +117,7 @@ export const Hero = ({ onOpenResume }) => {
                 href="https://github.com/themrsarii"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-xs sm:text-sm font-medium text-[#666666] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-xs sm:text-sm font-medium text-[#4B5563] dark:text-[#A1A1AA] hover:text-[#171717] dark:hover:text-white transition-colors"
                 aria-label="GitHub Profile"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -128,7 +128,7 @@ export const Hero = ({ onOpenResume }) => {
             {/* Quick Engineering Focus Strip */}
             <div className="mt-8 pt-6 border-t border-[#E8E8E8] dark:border-[#222429] grid grid-cols-2 gap-6 max-w-lg">
               <div>
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#595959] dark:text-[#A1A1AA]">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#4B5563] dark:text-[#A1A1AA]">
                   Primary Stack
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-[#171717] dark:text-[#EDEDED] mt-0.5 block">
@@ -136,7 +136,7 @@ export const Hero = ({ onOpenResume }) => {
                 </span>
               </div>
               <div>
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#595959] dark:text-[#A1A1AA]">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#4B5563] dark:text-[#A1A1AA]">
                   Engineering Scope
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-[#171717] dark:text-[#EDEDED] mt-0.5 block">
@@ -154,13 +154,13 @@ export const Hero = ({ onOpenResume }) => {
               <div className="relative rounded-2xl overflow-hidden border border-[#E8E8E8] dark:border-[#222429] bg-[#F7F7F5] dark:bg-[#111114] shadow-sm">
 
                 {/* Clean Frame Bar */}
-                <div className="px-3.5 py-2 border-b border-[#E8E8E8] dark:border-[#222429] flex items-center justify-between bg-white dark:bg-[#141418]">
+                <div className="h-[37px] px-3.5 py-2 border-b border-[#E8E8E8] dark:border-[#222429] flex items-center justify-between bg-white dark:bg-[#141418]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                   </div>
-                  <span className="text-[10px] font-mono text-[#595959] dark:text-[#A1A1AA]">
+                  <span className="text-[10px] font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                     sarfaraz.webp
                   </span>
                 </div>
@@ -183,16 +183,16 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
 
                 {/* Bottom Frame Info */}
-                <div className="p-3 sm:p-3.5 bg-white dark:bg-[#141418] border-t border-[#E8E8E8] dark:border-[#222429] flex items-center justify-between">
+                <div className="h-[52px] p-3 sm:p-3.5 bg-white dark:bg-[#141418] border-t border-[#E8E8E8] dark:border-[#222429] flex items-center justify-between">
                   <div>
                     <span className="text-xs font-semibold text-[#171717] dark:text-[#EDEDED] block">
                       Muhammad Sarfaraz
                     </span>
-                    <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
+                    <span className="text-[11px] font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                       Full Stack Developer
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-[#595959] dark:text-[#A1A1AA]">
+                  <span className="text-[11px] font-mono text-[#4B5563] dark:text-[#A1A1AA]">
                     Pakistan
                   </span>
                 </div>
