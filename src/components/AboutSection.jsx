@@ -85,7 +85,7 @@ export const AboutSection = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[#595959] dark:text-[#A1A1AA]">Availability</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 font-medium">
+                  <span className="text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Open to Opportunities
                   </span>
                 </div>

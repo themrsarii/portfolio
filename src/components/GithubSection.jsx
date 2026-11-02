@@ -55,6 +55,8 @@ export const GithubSection = () => {
 
   useEffect(() => {
     let ignore = false;
+    let timerId;
+
     async function load() {
       try {
         const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=4`);
@@ -69,9 +71,30 @@ export const GithubSection = () => {
         }
       }
     }
-    load();
-    return () => { ignore = true; };
-  }, [username]);
+
+    // Defer initial fetch to avoid contending with LCP and initial paint
+    if (username === defaultUser) {
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        const handle = window.requestIdleCallback(() => {
+          timerId = setTimeout(load, 2000);
+        });
+        return () => {
+          ignore = true;
+          window.cancelIdleCallback(handle);
+          clearTimeout(timerId);
+        };
+      } else {
+        timerId = setTimeout(load, 2000);
+        return () => {
+          ignore = true;
+          clearTimeout(timerId);
+        };
+      }
+    } else {
+      load();
+      return () => { ignore = true; };
+    }
+  }, [username, defaultUser]);
 
   const handleUpdateUsername = (e) => {
     e.preventDefault();

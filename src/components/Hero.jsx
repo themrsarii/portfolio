@@ -201,17 +201,21 @@ export const Hero = ({ onOpenResume }) => {
                   </span>
                 </div>
 
-                {/* Portrait Image */}
+                {/* Portrait Image with Responsive Sources */}
                 <div className="relative aspect-[4/4.8] sm:aspect-[4/5] overflow-hidden bg-[#F2F2F0] dark:bg-[#0D0E11]">
-                  <img
-                    src="/assets/hero-portrait-natural.webp"
-                    alt="Muhammad Sarfaraz, Full Stack Developer"
-                    width="340"
-                    height="425"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
+                  <picture>
+                    <source media="(max-width: 640px)" srcSet="/assets/hero-portrait-mobile.webp" type="image/webp" />
+                    <source media="(min-width: 641px)" srcSet="/assets/hero-portrait-natural.webp" type="image/webp" />
+                    <img
+                      src="/assets/hero-portrait-natural.webp"
+                      alt="Muhammad Sarfaraz, Full Stack Developer"
+                      width="340"
+                      height="425"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                      loading="eager"
+                      fetchPriority="high"
+                    />
+                  </picture>
                 </div>
 
                 {/* Bottom Frame Info */}

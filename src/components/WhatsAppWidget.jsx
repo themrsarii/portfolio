@@ -23,7 +23,7 @@ export const WhatsAppWidget = () => {
         <div className="flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-white/95 dark:bg-[#14151B]/95 backdrop-blur-md border border-[#E8E8E8] dark:border-[#282B34] text-[#171717] dark:text-[#EDEDED] shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_16px_rgba(0,0,0,0.35)] group-hover:border-[#D4D4D4] dark:group-hover:border-[#383C46] group-hover:-translate-x-0.5 transition-all duration-200">
           <span className="text-xs font-mono font-medium tracking-tight whitespace-nowrap">
             <span className="hidden sm:inline">Have a project in mind? </span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Let's talk</span>
+            <span className="text-emerald-700 dark:text-emerald-400 font-semibold">Let's talk</span>
           </span>
         </div>
 

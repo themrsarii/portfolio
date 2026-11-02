@@ -162,7 +162,7 @@ export const CaseStudyModal = ({ project, onClose }) => {
                   </div>
 
                   <div className="p-5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
-                    <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase mb-2 font-semibold">
+                    <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-mono text-xs uppercase mb-2 font-semibold">
                       <CheckCircle2 className="w-4 h-4" /> The Engineering Solution
                     </div>
                     <p className="text-[#666666] dark:text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
@@ -295,7 +295,7 @@ export const CaseStudyModal = ({ project, onClose }) => {
                   </div>
 
                   <div className="p-5 rounded-xl bg-[#F7F7F5] dark:bg-[#16171E] border border-[#E8E8E8] dark:border-[#262830]">
-                    <span className="text-xs font-mono uppercase text-emerald-600 dark:text-emerald-400 font-semibold block mb-2">
+                    <span className="text-xs font-mono uppercase text-emerald-700 dark:text-emerald-400 font-semibold block mb-2">
                       Engineering Solution
                     </span>
                     <p className="text-xs sm:text-sm text-[#666666] dark:text-[#A1A1AA] leading-relaxed">

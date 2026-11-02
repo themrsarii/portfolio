@@ -1,4 +1,4 @@
-# Muhammad Sarfaraz - Full Stack MERN Developer
+# Muhammad Sarfaraz: Full Stack MERN Developer
 
 > Muhammad Sarfaraz (Mr SARii) is a professional Full-Stack Engineer specializing in MERN stack web applications, RESTful APIs, and scalable software systems.
 
